@@ -1,0 +1,19 @@
+To be completed:
+// Class Structure
+1. Words
+- Nouns
+--- methods: pluralize(), addAdj(), addArt()
+- Verbs
+--- methods: conjugate(), addAdv()
+- Adjectives and Adverbs (no methods)
+
+2. Sentences and their respective structures
+- Questions
+- Exclamatives
+- Declaratives
+- Fun Facts
+- Greetings
+- Farewells
+
+Completed:
+- Kumar (setup)
