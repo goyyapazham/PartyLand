@@ -1,11 +1,8 @@
 To be completed:
 // Class Structure
 1. Words
-- Nouns
---- methods: pluralize(), addAdj(), addArt()
-- Verbs
---- methods: conjugate(), addAdv()
-- Adjectives and Adverbs (no methods)
+- Noun methods: pluralize(), addAdj(), addArt()
+- Verb methods: conjugate(), addAdv()
 
 2. Sentences and their respective structures
 - Questions
@@ -15,5 +12,13 @@ To be completed:
 - Greetings
 - Farewells
 
+3. Reading inputs!!!
+- search method!!!
+- all hardcoding :/
+
+4. extras
+- text files w/ huge #s of words + csv interpretation
+
 Completed:
 - Kumar (setup)
+- basic Word structure
