@@ -35,10 +35,15 @@ public class NounPhrase extends Phrase {
 	if (word.substring(word.length() - 2).equals("ch")
 	    || word.substring(word.length() - 2).equals("sh")
 	    || word.substring(word.length() - 1).equals("x")
+	    || word.substring(word.length() - 1).equals("s")
 	    || word.substring(word.length() - 1).equals("z")) {
 	    //it's pluralized via "-es"
 	    word += "es";
 	}
+	//if word ends in y
+	else if (word.substring(word.length() - 1).equals("y")) {
+	    //it's pluralized via dropping "y" adding "-ies"
+	    word = word.substring(0,word.length() - 1) + "ies"
 	else {
 	    //otherwise, it's pluralized via "-s"
 	    word += "s";
