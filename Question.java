@@ -4,13 +4,12 @@ public class Question extends Sentence {
 	NounPhrase n = new NounPhrase();
 	VerbPhrase v = new VerbPhrase(true);
 	if(n.plural) {
-	    sentence = "do ";
+	    sentence = "Do ";
 	}
 	else {
-	    sentence = "does ";
+	    sentence = "Does ";
 	}
 	sentence += n + " " + v;
-        capitalize();
         punctuate();
 	return sentence;
     }

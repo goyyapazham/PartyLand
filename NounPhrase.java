@@ -28,6 +28,23 @@ public class NounPhrase extends Phrase {
 	}
     }
 
+    public NounPhrase(boolean boo) {
+	word = nouns[(int)(Math.random() * nouns.length)];
+	//ensures plurality (or lack thereof)
+        if(boo)	pluralize();
+	//now work with the noun-phrase
+	phrase = word;
+	for(int i = 0; i < (int)(Math.random() * 5); i++) {
+	    //select random adjective from array of adjectives
+	    String adj = adjective[(int)(Math.random() * adjective.length)];
+	    //if adjective has not already been used,
+	    if (phrase.indexOf(adj) == -1) {
+		//add adjective to the beginning of the noun-phrase
+		phrase = adj + " " + phrase;
+	    }
+	}
+    }
+
     public void pluralize() {
 	//used to conjugate (see class VerbPhrase)
 	plural = true;
