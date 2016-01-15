@@ -7,7 +7,7 @@ public class Kumar {
 
     public String sentence() {
 	NounPhrase n = new NounPhrase();
-	VerbPhrase v = new VerbPhrase();
+	VerbPhrase v = new VerbPhrase(n.plural);
 	return n + " " + v;
     }
 

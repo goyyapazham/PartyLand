@@ -1,13 +1,20 @@
 public class VerbPhrase extends Words {
     
-    private String[] verbs = new String[]{"run", "greet", "walk", "jump", "play"};
+    private String[] verbs = new String[]{"run", "greet", "walk", "jump", "play", "eat", "move", "dream", "sing", "learn", "ride", "scream", "smile", "read"};
     private String[] adverbs = new String[]{"loudly", "kindly", "carelessly", "softly"};
 
-    public VerbPhrase() {
-	phrase = verbs[(int)(Math.random() * verbs.length)];
-	for(int i = 0; i < (int)(Math.random() * 2); i++) {
-	    phrase += " " + adverbs[(int)(Math.random() * adverbs.length)];
+    public VerbPhrase(boolean plural) {
+	word = verbs[(int)(Math.random() * verbs.length)];
+	if(! (plural)) conjugate();
+	phrase = word;
+	if((int)(Math.random() * 4) == 0) {
+	    String adv = adverbs[(int)(Math.random() * adverbs.length)];
+	    phrase += " " + adv;
 	}
+    }
+
+    public void conjugate() {
+	word += "s";
     }
 
     public String toString() {
