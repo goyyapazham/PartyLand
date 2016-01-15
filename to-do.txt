@@ -1,8 +1,7 @@
 To be completed:
 // Class Structure
 1. Words
-- Noun methods: pluralize(), addAdj(), addArt()
-- Verb methods: conjugate(), addAdv()
+- Noun methods: add article
 
 2. Sentences and their respective structures
 - Questions
@@ -21,4 +20,6 @@ To be completed:
 
 Completed:
 - Kumar (setup)
-- basic Word structure
+- basic Phrase structure
+--- noun-phrase can be pluralized (basic)
+--- verb-phrase can be conjugated (basic)

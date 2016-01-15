@@ -1,5 +1,7 @@
-1/11/16: Discussed/finalized outline for structure of Kumar. Superclass Sentence w/ subclasses different types of sentences. Kumar generates a Sentence in response to inputs read through cs1/Keyboard.java. If he can't figure out what you're saying, he'll make a random sentence in response.
+1/11/16 (In-Class): Discussed/finalized outline for structure of Kumar. Superclass Sentence w/ subclasses different types of sentences. Kumar generates a Sentence in response to inputs read through cs1/Keyboard.java. If he can't figure out what you're saying, he'll make a random sentence in response.
 
-1/13/16: Initialized Kumar, taught it to construct basic sentences (no articles/grammar) with variety of noun/verb -phrases
+1/13/16 (Pardeep): Initialized Kumar, taught it to construct basic sentences (no articles/grammar) with variety of noun/verb -phrases
 
-1/14/16: Initialized Word structure, Kumar generates sentences with noun-phrases and verb-phrases (num. of adverbs and adjectives non-constant)
+1/14/16 (In-Class): Initialized Word structure, Kumar generates sentences with noun-phrases and verb-phrases (num. of adverbs and adjectives non-constant)
+
+1/14/16 (Nala): Initialized pluralize() and conjugate() methods (must be expanded for greater functionality later on), updated Phrase structure
