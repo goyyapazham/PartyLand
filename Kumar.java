@@ -1,27 +1,20 @@
 public class Kumar {
 
-    //sentence
-    protected String sentence;
+    protected Sentence sentence;
 
-    //constructor
-    public String sentence() {
-	//generate noun-phrase
-	NounPhrase n = new NounPhrase();
-	//generate verb-phrase with respect to noun-phrase's subject
-	VerbPhrase v = new VerbPhrase(n.plural);
-	//generate sentence
-	return n + " " + v;
+    public Kumar() {
+	sentence = new Question();
     }
 
     public String toString() {
-	return sentence;
+	return sentence.toString();
     }
 
     public static void main( String[] args ) {
 	Kumar pardeep = new Kumar();
 	//output 15 random sentences
 	for ( int x = 0; x < 15; x++ ) {
-	    System.out.println( pardeep.sentence() );
+	    System.out.println( pardeep.sentence.generate() );
 	}
     }
 }

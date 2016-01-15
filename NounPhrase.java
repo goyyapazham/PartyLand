@@ -43,7 +43,8 @@ public class NounPhrase extends Phrase {
 	//if word ends in y
 	else if (word.substring(word.length() - 1).equals("y")) {
 	    //it's pluralized via dropping "y" adding "-ies"
-	    word = word.substring(0,word.length() - 1) + "ies"
+	    word = word.substring(0,word.length() - 1) + "ies";
+	}
 	else {
 	    //otherwise, it's pluralized via "-s"
 	    word += "s";
