@@ -1,29 +1,38 @@
-To be completed:
-// Class Structure
-1. Words
-- Noun methods: add article
-- greater volume to noun, verb, adj, adv arrays
+Team PartyLand: Nalanda Sharadjaya and Pardeep Singh
 
-2. Sentences and their respective structures
-TYPES
-- Questions
-- Exclamatives
-- Declaratives
-- Fun Facts
-- Greetings
-- Farewells
-METHODS
-- capitalization, punctuation
+------ COMPLETED 1/11 - 1/14 ------
 
-3. Reading inputs!!!
-- search method!!!
-- all hardcoding :/
+~~~~ CLASS STRUCTURE ~~~~
+1. Kumar (setup)
+2. Phrase
+2a. NounPhrase
+2b. VerbPhrase
 
-4. extras
-- text files w/ huge #s of words + csv interpretation
+~~~~ METHODS ~~~~
+NounPhrase:
+- pluralize()
+VerbPhrase:
+- conjugate()
 
-Completed:
-- Kumar (setup)
-- basic Phrase structure
---- noun-phrase can be pluralized (basic)
---- verb-phrase can be conjugated (basic)
+------ TO BE COMPLETED ------
+
+~~~~ CLASS STRUCTURE ~~~~
+Sentence (est. 4h):
+1. Questions
+2. Exclamatives
+3. Declaratives
+4. Greetings
+5. Farewells
+6. Fun Facts
+
+~~~~ METHODS ~~~~
+Sentence (est. 15m):
+- capitalize()
+- punctuate()
+
+~~~~ RESPONSE MECHANISM ~~~~
+- search method
+- if/else structure (est. 4-5 days?)
+
+~~~~ EXTRAS ~~~~
+- vocabulary sorted into CSV files, retrieved & sorted through CSV
