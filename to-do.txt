@@ -2,14 +2,18 @@ To be completed:
 // Class Structure
 1. Words
 - Noun methods: add article
+- greater volume to noun, verb, adj, adv arrays
 
 2. Sentences and their respective structures
+TYPES
 - Questions
 - Exclamatives
 - Declaratives
 - Fun Facts
 - Greetings
 - Farewells
+METHODS
+- capitalization, punctuation
 
 3. Reading inputs!!!
 - search method!!!
