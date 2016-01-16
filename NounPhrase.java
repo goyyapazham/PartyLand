@@ -5,19 +5,53 @@ public class NounPhrase extends Phrase {
     private String[] adjective = new String[]{"slimy", "clean", "dirty", "big"};
 
     //used to conjugate (see class VerbPhrase)
+    protected int subj = 3;
     protected boolean plural = false;
 
-    //constructor
     public NounPhrase() {
+	this((int)(Math.random() * 3) == 0);
+    }
+    
+    public NounPhrase(boolean boo) {
 	//select random noun from array of nouns
-	word = nouns[(int)(Math.random() * nouns.length)];
-	//one-third chance of pluralizing
-	if((int)(Math.random() * 3) == 2) {
-	    pluralize();
+	int getSubj = (int)(Math.random() * 10);
+	if(getSubj > 2) {
+	    if(boo) word = "we";
+	    else word = "I";
+	    subj = 1;
 	}
-	//now work with the noun-phrase
+	else if (getSubj == 1) {
+	    word = "you";
+	    subj = 2;
+	}
+	else {
+	    word = nouns[(int)(Math.random() * nouns.length)];
+	    if(boo) pluralize();
+	}
 	phrase = word;
-	for(int i = 0; i < (int)(Math.random() * 5); i++) {
+        addAdj();
+    }
+
+    public NounPhrase(int i, boolean boo) {
+	subj = i;
+	if(subj == 1) {
+	    if(boo) word = "we";
+	    else word = "I";
+	}
+	else if(subj == 2) {
+	    word = "you";
+	}
+	else {
+	    word = nouns[(int)(Math.random() * nouns.length)];
+	    if(boo) pluralize();
+	}
+	phrase = word;
+	addAdj();
+    }
+
+    public void addAdj() {
+	if (subj != 3) return;
+	for(int i = 0; i < (int)(Math.random() * 3); i++) {
 	    //select random adjective from array of adjectives
 	    String adj = adjective[(int)(Math.random() * adjective.length)];
 	    //if adjective has not already been used,
@@ -28,28 +62,17 @@ public class NounPhrase extends Phrase {
 	}
     }
 
-    public NounPhrase(boolean boo) {
-	word = nouns[(int)(Math.random() * nouns.length)];
-	//ensures plurality (or lack thereof)
-        if(boo)	pluralize();
-	//now work with the noun-phrase
-	phrase = word;
-	for(int i = 0; i < (int)(Math.random() * 5); i++) {
-	    //select random adjective from array of adjectives
-	    String adj = adjective[(int)(Math.random() * adjective.length)];
-	    //if adjective has not already been used,
-	    if (phrase.indexOf(adj) == -1) {
-		//add adjective to the beginning of the noun-phrase
-		phrase = adj + " " + phrase;
-	    }
-	}
+    public void addArt() {
+	if(subj == 3) phrase = "the " + phrase;
     }
 
     public void pluralize() {
 	//used to conjugate (see class VerbPhrase)
 	plural = true;
-	//if a word ends in one of these things,
-	if (word.substring(word.length() - 2).equals("ch")
+	if (word.equals("I")) {
+	    word = "we";
+	}
+	else if (word.substring(word.length() - 2).equals("ch")
 	    || word.substring(word.length() - 2).equals("sh")
 	    || word.substring(word.length() - 1).equals("x")
 	    || word.substring(word.length() - 1).equals("s")

@@ -3,7 +3,7 @@ public class Kumar {
     protected Sentence sentence;
 
     public Kumar() {
-	sentence = new FunFact();
+	sentence = new Declarative();
     }
 
     public String toString() {

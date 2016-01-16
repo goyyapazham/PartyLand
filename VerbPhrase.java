@@ -8,10 +8,10 @@ public class VerbPhrase extends Phrase {
     public VerbPhrase(boolean plural) {
 	//select random verb from array of verbs
 	word = verbs[(int)(Math.random() * verbs.length)];
-	//if this sentence's noun isn't plural, the verb must be conjugated
-	if(! (plural)) conjugate();
 	//now work with the verb-phrase
 	phrase = word;
+	//conjugate
+	if(plural) conjugate();
 	//one-fourth chance of adding an adverb
 	if((int)(Math.random() * 4) == 0) {
 	    //select random adverb from array of adverbs

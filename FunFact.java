@@ -4,17 +4,18 @@ public class FunFact extends Sentence {
 
     public String generate() {
 	type = (int)(Math.random() * 2);
-	NounPhrase n = new NounPhrase(true);
+	NounPhrase n = new NounPhrase(3, true);
 	VerbPhrase v = new VerbPhrase(true);
 	if(type == 0) {
-	    sentence = "Did you know that ";
+	    sentence = "did you know that ";
 	}
 	else {
-	    sentence = "Here's a fun fact: ";
+	    sentence = "here's a fun fact: ";
 	}
 	int pct = (int)(Math.random() * 101);
 	sentence += pct + "% of " + n + " " + v;
 	punctuate();
+	capitalize();
 	return sentence;
     }
 

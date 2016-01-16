@@ -9,4 +9,8 @@ public abstract class Sentence {
 	return sentence;
     }
 
+    public void capitalize() {
+	sentence = sentence.substring(0, 1).toUpperCase() + sentence.substring(1);
+    }
+
 }
