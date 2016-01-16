@@ -2,16 +2,16 @@ public class VerbPhrase extends Phrase {
 
     //constant arrays
     private String[] verbs = new String[]{"run", "greet", "walk", "jump", "play", "eat", "move", "dream", "sing", "learn", "ride", "scream", "smile", "read"};
-    private String[] adverbs = new String[]{"loudly", "kindly", "carelessly", "softly"};
+    private String[] adverbs = new String[]{"loudly", "kindly", "carelessly", "softly", "interestingly", "quickly", "well", "rudely", "jokingly", "oddly"};
 
     //overloaded constructor (parameter inserted in driver Kumar)
     public VerbPhrase(boolean plural) {
 	//select random verb from array of verbs
 	word = verbs[(int)(Math.random() * verbs.length)];
-	//now work with the verb-phrase
-	phrase = word;
 	//conjugate
 	if(plural) conjugate();
+	//now work with the verb-phrase
+	phrase = word;
 	//one-fourth chance of adding an adverb
 	if((int)(Math.random() * 4) == 0) {
 	    //select random adverb from array of adverbs
@@ -29,14 +29,14 @@ public class VerbPhrase extends Phrase {
     public String toString() {
 	return phrase;
     }
-    
+
     /*
     public static void main(String[] args) {
-	VerbPhrase pardeep = new VerbPhrase();
-	VerbPhrase nala = new VerbPhrase();
+	VerbPhrase pardeep = new VerbPhrase(true);
+	VerbPhrase nala = new VerbPhrase(false);
 	System.out.println(pardeep);
 	System.out.println(nala);
     }
     */
-
+    
 }

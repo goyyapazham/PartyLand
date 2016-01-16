@@ -2,7 +2,7 @@ public class NounPhrase extends Phrase {
 
     //constant arrays
     private String[] nouns = new String[]{"dog", "house", "cat", "watch", "tool", "box", "lunch", "peach", "waltz", "apple", "truck", "egg", "beach", "tax"};
-    private String[] adjective = new String[]{"slimy", "clean", "dirty", "big"};
+    private String[] adjective = new String[]{"slimy", "clean", "dirty", "big", "small", "sad", "smelly", "soft", "loud", "mean", "generous", "wonderful"};
 
     //used to conjugate (see class VerbPhrase)
     protected int subj = 3;
@@ -14,8 +14,8 @@ public class NounPhrase extends Phrase {
     
     public NounPhrase(boolean boo) {
 	//select random noun from array of nouns
-	int getSubj = (int)(Math.random() * 10);
-	if(getSubj > 2) {
+	int getSubj = (int)(Math.random() * 8);
+	if(getSubj == 0) {
 	    if(boo) word = "we";
 	    else word = "I";
 	    subj = 1;
