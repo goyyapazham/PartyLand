@@ -9,3 +9,5 @@ Team PartyLand: Nalanda Sharadjaya and Pardeep Singh
 1/14/16 (Nala): Initialized pluralize() and conjugate() methods (must be expanded for greater functionality later on), updated Phrase structure, made flow chart and UML diagram
 
 1/15/16 (Nala): Initialized Sentence structure, created basic Question and FunFact types
+
+1/16/16 (Nala): Updated NounPhrase to create first- and second-person sentences as well, created new Sentence type (Declarative)
