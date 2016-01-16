@@ -4,8 +4,11 @@ public class FunFact extends Sentence {
 
     public String generate() {
 	type = (int)(Math.random() * 2);
+	//fun facts /must/ be about third-person nouns, must be plural
 	NounPhrase n = new NounPhrase(3, true);
-	VerbPhrase v = new VerbPhrase(true);
+	//must /not/ be conjugated
+	VerbPhrase v = new VerbPhrase(false);
+	//two types of fun-fact sentence structures
 	if(type == 0) {
 	    sentence = "did you know that ";
 	}
@@ -20,6 +23,7 @@ public class FunFact extends Sentence {
     }
 
     public void punctuate() {
+	//two types of fun-fact sentence structures
 	if(type == 0) sentence += "?";
 	else sentence += "!";
     }
