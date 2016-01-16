@@ -14,16 +14,21 @@ NounPhrase:
 VerbPhrase:
 - conjugate()
 
+------ COMPLETED 1/15 ------
+
+~~~~ CLASS STRUCTURE ~~~~
+1. Sentence
+- Question (basic q-type)
+- FunFact
+
 ------ TO BE COMPLETED ------
 
 ~~~~ CLASS STRUCTURE ~~~~
 Sentence (est. 4h):
-1. Questions
-2. Exclamatives
-3. Declaratives
-4. Greetings
-5. Farewells
-6. Fun Facts
+1. Exclamatives
+2. Declaratives
+3. Greetings
+4. Farewells
 
 ~~~~ METHODS ~~~~
 Sentence (est. 15m):
