@@ -3,7 +3,7 @@ public class Kumar {
     protected Sentence sentence;
 
     public Kumar() {
-	sentence = new Declarative();
+	sentence = new Farewell();
     }
 
     public String toString() {
