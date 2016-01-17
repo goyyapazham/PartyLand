@@ -17,31 +17,48 @@ VerbPhrase:
 ------ COMPLETED 1/15 ------
 
 ~~~~ CLASS STRUCTURE ~~~~
-1. Sentence
+Sentence:
 - Question (basic q-type)
 - FunFact
 
 ------ COMPLETED 1/16 ------
 
 ~~~~ CLASS STRUCTURE ~~~~
-1. Sentence
+Sentence:
 - Greeting
 - Farewell
+- Declarative
+
+~~~~ METHODS ~~~~
+NounPhrase:
+- updated constructors
+- updated pluralize()
+- addArt()
+VerbPhrase:
+- updated constructors
+
+------ COMPLETED 1/17 ------
+
+~~~~ CLASS STRUCTURE ~~~~
+Sentence:
+- Input (purely for response purposes)
+
+~~~~ RESPONSE MECHANISM ~~~~
+Reader:
+- to be used while Kumar functions as driver class for new Sentence types
+- /extremely/ basic response mechanism developed (recognizes questions if they end with "?")
+- otherwise parrots what's been said
+- "help" and "exit" commands functional
 
 ------ TO BE COMPLETED ------
 
 ~~~~ CLASS STRUCTURE ~~~~
-Sentence (est. 4h):
-1. Exclamatives
-2. Declaratives
-
-~~~~ METHODS ~~~~
-Sentence (est. 15m):
-- capitalize()
-- punctuate()
+Sentence:
+- varying sentence structures (TBC after response mechanism is fully functional)
 
 ~~~~ RESPONSE MECHANISM ~~~~
 - search method
+- obstacle to overcome: inability to typecast types of Sentences as other types of Sentences
 - if/else structure (est. 4-5 days?)
 
 ~~~~ EXTRAS ~~~~
