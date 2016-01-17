@@ -21,14 +21,19 @@ VerbPhrase:
 - Question (basic q-type)
 - FunFact
 
+------ COMPLETED 1/16 ------
+
+~~~~ CLASS STRUCTURE ~~~~
+1. Sentence
+- Greeting
+- Farewell
+
 ------ TO BE COMPLETED ------
 
 ~~~~ CLASS STRUCTURE ~~~~
 Sentence (est. 4h):
 1. Exclamatives
 2. Declaratives
-3. Greetings
-4. Farewells
 
 ~~~~ METHODS ~~~~
 Sentence (est. 15m):
@@ -41,3 +46,4 @@ Sentence (est. 15m):
 
 ~~~~ EXTRAS ~~~~
 - vocabulary sorted into CSV files, retrieved & sorted through CSV
+- try to learn how to use html parser to use dictionary.com to pull plural versions of nouns since there are many special cases that can not all be hardcoded.
