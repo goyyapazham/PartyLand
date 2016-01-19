@@ -73,6 +73,14 @@ public class Reader {
 	return s;
     }
 
+    public Sentence randAnswer(Sentence s) {
+	int rand = (int)(Math.random() * 2);
+	if(rand == 0) s = new Declarative();
+        else s = new Question();
+	s.generate();
+	return s;
+    }
+
     public void speak() {
 	String s = "";
 	Sentence input;
@@ -82,8 +90,10 @@ public class Reader {
 	    s = Keyboard.readString();
 	    input = new Input(s);
 	    if(isQuestion(input.sentence)) response = basicQAnswer(input);
-	    else response = input;
-	    if(!s.equals("exit")) System.out.println(response);
+	    else response = randAnswer(input);
+	    if(!s.equals("exit")
+	       && !s.equals("help"))
+		System.out.println(response);
 	    if(s.equals("help")) help();
 	}
     }
