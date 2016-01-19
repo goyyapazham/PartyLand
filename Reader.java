@@ -10,10 +10,10 @@ public class Reader {
     }
 
     public void help() {
-	System.out.println("For starters, try: ");
+	System.out.println("\nFor starters, try: ");
 	System.out.println("\tHow are you?");
 	System.out.println("\tWhat is 4/3?");
-	System.out.println("\tWhat is the meaning of life?");
+	System.out.println("\tWhat is the meaning of life?\n");
     }
 
     public static boolean isQuestion(String input) {
@@ -66,7 +66,10 @@ public class Reader {
 	else if ( questionType(s.sentence).equals("how") ) {
 	    str = "How is that possible? I don't know either but... \n ";
 	}
-	else str = "That's an interesting question. I don't have an answer for you right now. But... ";
+	else {
+	    Sentence filler = new Filler();
+	    str = filler.generate() + " ";
+	}
 	s = new FunFact();
 	str += s.generate();
 	s.sentence = str;
