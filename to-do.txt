@@ -50,16 +50,37 @@ Reader:
 - otherwise parrots what's been said
 - "help" and "exit" commands functional
 
+------ COMPLETED 1/18 ------
+
+~~~~ RESPONSE MECHANISM ~~~~
+Reader:
+- can now respond to 5 W's and H (Who, What, Where, When, Why, How)
+- creates unique response for each type
+
+------ COMPLETED 1/19 ------
+
+~~~~ CLASS STRUCTURE ~~~~
+- initialized Filler class
+
+~~~~ RESPONSE MECHANISM ~~~~
+- improved for questions
+- generates Filler responses if it doesn't know what to do
+
 ------ TO BE COMPLETED ------
 
 ~~~~ CLASS STRUCTURE ~~~~
 Sentence:
 - varying sentence structures (TBC after response mechanism is fully functional)
+Filler: 
+- overload generate() to create specific fillers for different types of inputs
+NounPhrase:
+- types of nouns e.g. pronouns, colors, people, food, ..... (i.e. improve variety)
 
 ~~~~ RESPONSE MECHANISM ~~~~
 - search method
-- obstacle to overcome: inability to typecast types of Sentences as other types of Sentences
 - if/else structure (est. 4-5 days?)
+--- separate inputs by type of sentence
+--- generate Fillers for a lot
 
 ~~~~ EXTRAS ~~~~
 - vocabulary sorted into CSV files, retrieved & sorted through CSV
