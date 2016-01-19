@@ -7,7 +7,7 @@ Team PartyLand: Nalanda Sharadjaya and Pardeep Singh
 1/14/16 (In-Class): Initialized Word structure, Kumar generates sentences with noun-phrases and verb-phrases (num. of adverbs and adjectives non-constant)
 
 1/14/16 (Nala): Initialized pluralize() and conjugate() methods (must be expanded for greater functionality later on), updated Phrase structure, made flow chart and UML diagram
-1/14/16 (Pardeep): Attempted to use the built in java html parser with dictionary.com(did not push to github becuase it wasn't successful
+1/14/16 (Pardeep): Attempted to use the built in java html parser with dictionary.com(did not push to github becuase it wasn't successful)
 
 1/15/16 (Nala): Initialized Sentence structure, created basic Question and FunFact types
 
@@ -15,3 +15,5 @@ Team PartyLand: Nalanda Sharadjaya and Pardeep Singh
 1/16/16 (Pardeep): created Farewell and Greeting classes
 
 1/17/16 (Nala): Initialized response mechanism via class Reader (will be used as long as Kumar is required to test new Sentence types) - can recognize sentences that end with "?" as questions
+
+1/18/16 (Pardeep): Kumar can now seprate questions based on 5W's and H. Returns different response for each. Questions can now either have a key question word or a "?"
