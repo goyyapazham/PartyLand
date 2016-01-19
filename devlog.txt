@@ -16,4 +16,6 @@ Team PartyLand: Nalanda Sharadjaya and Pardeep Singh
 
 1/17/16 (Nala): Initialized response mechanism via class Reader (will be used as long as Kumar is required to test new Sentence types) - can recognize sentences that end with "?" as questions
 
-1/18/16 (Pardeep): Kumar can now seprate questions based on 5W's and H. Returns different response for each. Questions can now either have a key question word or a "?"
+1/18/16 (Pardeep): Kumar can now separate questions based on 5W's and H. Returns different response for each. Questions can now either have a key question word or a "?"
+
+1/19/16 (In-Class): Initialized Filler class, improved question response mechanism
