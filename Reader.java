@@ -2,6 +2,7 @@ import cs1.Keyboard;
 
 public class Reader {
 
+    //speaking info
     public void begin() {
 	System.out.println("Hello! Welcome. My name is Kumar.");
 	help();
@@ -16,14 +17,7 @@ public class Reader {
 	System.out.println("\tWhat is the meaning of life?\n");
     }
 
-    public static boolean isQuestion(String input) {
-	boolean retBool = false;
-	if(input.substring(input.length() - 1).equals("?") ||
-	   ! questionType(input).equals("unknown")) {
-	    retBool = true;
-	}
-	return retBool;
-    }
+    //for response mechanism
     public static boolean search( String searching, String input ) {
 	int length = searching.length();
 	input = input.toLowerCase();
@@ -34,6 +28,21 @@ public class Reader {
 	    }
 	}
 	return false;
+    }
+
+    /* ~~~~ QUESTION ~~~~
+       - isQ8estion()
+       - questionType()
+       - basicQAnswer()
+       ~~~~~~~~~~~~~~~~~~ */
+    
+    public static boolean isQuestion(String input) {
+	boolean retBool = false;
+	if(input.substring(input.length() - 1).equals("?") ||
+	   ! questionType(input).equals("unknown")) {
+	    retBool = true;
+	}
+	return retBool;
     }
 
     public static String questionType( String input ) {
@@ -76,6 +85,7 @@ public class Reader {
 	return s;
     }
 
+    //if all else fails
     public Sentence randAnswer(Sentence s) {
 	int rand = (int)(Math.random() * 2);
 	if(rand == 0) s = new Declarative();
@@ -84,6 +94,7 @@ public class Reader {
 	return s;
     }
 
+    //and so, Kumar is born
     public void speak() {
 	String s = "";
 	Sentence input;
