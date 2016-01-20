@@ -2,11 +2,9 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-import java.util.ArrayList;
-
 public class ParseCSV {
 
-    protected ArrayList words;
+    protected String[] words;
 
     public ParseCSV(String filename) {
 	words = readFile(filename);
@@ -24,27 +22,20 @@ public class ParseCSV {
 	return freq;
     }
 
-    public static ArrayList split(String input) {
-        ArrayList words = new ArrayList();
-	for(int i = 0; i < freq(input, ",") + 1; i++) {
-	    words.add("noun");
+    public String print() {
+	String retStr = "[";
+	for(int i = 0; i < words.length; i++) {
+	    retStr += words[i] + ", ";
 	}
-	for(int i = 0; i < words.size() - 1; i++) {
-	    words.set(i, input.substring(0, input.indexOf(",")));
-	    input = input.substring(input.indexOf(",") + 2);
-	}
-
-	words.set(words.size() - 1, input);
-	return words;
+	return retStr.substring(0, retStr.length() - 2) + "]";
     }
 
-    public ArrayList readFile(String fileName) {
-	ArrayList words = new ArrayList();
+    public String[] readFile(String fileName) {
        	try {
 	    BufferedReader file =
 		new BufferedReader(new FileReader(fileName));
 	    String str = file.readLine();
-	    words = split(str);
+	    words = str.split(", ");
 	} catch(IOException e) {
 	    System.out.println("oops");
 	}
@@ -55,6 +46,7 @@ public class ParseCSV {
 
 	ParseCSV nala = new ParseCSV("nouns.txt");
 	System.out.println(nala);
+	System.out.println(nala.print());
 
     }
     
