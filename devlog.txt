@@ -20,3 +20,4 @@ Team PartyLand: Nalanda Sharadjaya and Pardeep Singh
 
 1/19/16 (In-Class): Initialized Filler class, improved question response mechanism
 1/19/16 (Nala): Created CSV Parser class, modified Phrase classes to parse String arrays via text files
+1/19/16 (Pardeep): Kumar recognizes and responds to Farewells and Greetings and terminates after Farewells
