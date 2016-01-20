@@ -1,8 +1,8 @@
 public class NounPhrase extends Phrase {
 
     //constant arrays
-    private String[] nouns = new String[]{"dog", "house", "cat", "watch", "tool", "box", "lunch", "peach", "waltz", "apple", "truck", "egg", "beach", "tax"};
-    private String[] adjective = new String[]{"slimy", "clean", "dirty", "big", "small", "sad", "smelly", "soft", "loud", "mean", "generous", "wonderful"};
+    private String[] nouns = parseCSV("nouns.txt");
+    private String[] adjectives = parseCSV("adjectives.txt");
 
     //used to conjugate (see class VerbPhrase)
     protected int subj = 3;
@@ -64,7 +64,7 @@ public class NounPhrase extends Phrase {
 	if (subj != 3) return;
 	for(int i = 0; i < (int)(Math.random() * 3); i++) {
 	    //select random adjective from array of adjectives
-	    String adj = adjective[(int)(Math.random() * adjective.length)];
+	    String adj = adjectives[(int)(Math.random() * adjectives.length)];
 	    //if adjective has not already been used,
 	    if (phrase.indexOf(adj) == -1) {
 		//add adjective to the beginning of the noun-phrase
@@ -108,13 +108,13 @@ public class NounPhrase extends Phrase {
     }
 
     //~~~ test cases for debugging purposes ~~~
-    /*
+    
     public static void main(String[] args) {
 	NounPhrase pardeep = new NounPhrase();
 	NounPhrase nala = new NounPhrase();
 	System.out.println(pardeep);
 	System.out.println(nala);
     }
-    */
+    
 
 }
