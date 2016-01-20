@@ -19,3 +19,4 @@ Team PartyLand: Nalanda Sharadjaya and Pardeep Singh
 1/18/16 (Pardeep): Kumar can now separate questions based on 5W's and H. Returns different response for each. Questions can now either have a key question word or a "?"
 
 1/19/16 (In-Class): Initialized Filler class, improved question response mechanism
+1/19/16 (Nala): Created CSV Parser class
