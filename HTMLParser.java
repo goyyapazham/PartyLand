@@ -48,13 +48,13 @@ public class HTMLParser {
 	    int pluralLocationEnd = search( "<", HTML.substring(pluralLocation) ) + pluralLocation - 2;
 	    word = HTML.substring( pluralLocation, pluralLocationEnd );
 	}
-	else word += "s";
     }
     public static void main( String[] args ) {
+	/*
 	HTMLParser pardeep = new HTMLParser("berry");
 	pardeep.startConnection();
 	pardeep.plural();
 	System.out.println(pardeep);
-	
+	*/	
     }
 }

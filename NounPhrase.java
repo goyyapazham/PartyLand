@@ -82,27 +82,34 @@ public class NounPhrase extends Phrase {
     public void pluralize() {
 	//used to conjugate (see class VerbPhrase)
 	plural = true;
-	if (word.equals("I")) {
-	    word = "we";
-	}
-	//pluralization via "-es"
-	else if (word.substring(word.length() - 2).equals("ch")
-	    || word.substring(word.length() - 2).equals("sh")
-	    || word.substring(word.length() - 1).equals("x")
-	    || word.substring(word.length() - 1).equals("s")
-	    || word.substring(word.length() - 1).equals("z")) {
-	    word += "es";
-	}
-	//pluralization via "-y" --> "-ies"
-	else if (word.substring(word.length() - 1).equals("y")) {
-	    word = word.substring(0,word.length() - 1) + "ies";
-	}
-	//pluralization via "-s"
-	else {
-	    word += "s";
+	String oldWord = word;
+	HTMLParser change = new HTMLParser(word);
+	change.startConnection();
+	change.plural();
+	word = change.toString();
+	if ( word.equals(oldWord) ) {
+	    	if (word.equals("I")) {
+		    word = "we";
+		}
+		//pluralization via "-es"
+		else if (word.substring(word.length() - 2).equals("ch")
+			 || word.substring(word.length() - 2).equals("sh")
+			 || word.substring(word.length() - 1).equals("x")
+			 || word.substring(word.length() - 1).equals("s")
+			 || word.substring(word.length() - 1).equals("z")) {
+		    word += "es";
+		}
+		//pluralization via "-y" --> "-ies"
+		else if (word.substring(word.length() - 1).equals("y")) {
+		    word = word.substring(0,word.length() - 1) + "ies";
+		}
+		//pluralization via "-s"
+		else {
+		    word += "s";
+		}
 	}
     }
-    
+
     public String toString() {
 	return phrase;
     }
