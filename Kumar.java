@@ -14,7 +14,7 @@ public class Kumar {
 	Kumar pardeep = new Kumar();
 	//output 15 random sentences
 	for ( int x = 0; x < 15; x++ ) {
-	    System.out.println( pardeep.sentence.generate() );
+	    System.out.println( pardeep.sentence.generate("") );
 	}
     }
 }

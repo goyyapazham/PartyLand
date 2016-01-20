@@ -1,4 +1,5 @@
 import cs1.Keyboard;
+import java.util.ArrayList;
 
 public class Reader {
     //for farewells terminate program afterwards
@@ -79,10 +80,10 @@ public class Reader {
 	}
 	else {
 	    Sentence filler = new Filler();
-	    str = filler.generate() + " ";
+	    str = filler.generate("") + " ";
 	}
 	s = new FunFact();
-	str += s.generate();
+	str += s.generate("");
 	s.sentence = str;
 	return s;
     }
@@ -105,7 +106,7 @@ public class Reader {
     
     public Sentence greet( Sentence s ) {	
 	Greeting greet = new Greeting();
-	greet.generate();
+	greet.generate("");
 	return greet;
     }
 
@@ -122,8 +123,25 @@ public class Reader {
     
     public Sentence farewell( Sentence s ) {	
 	Farewell farewell = new Farewell();
-	farewell.generate();
+	farewell.generate("");
 	return farewell;
+    }
+
+    public Sentence respondRelated(Sentence s,
+				   ArrayList<String> n,
+				   ArrayList<String> v) {
+	Sentence d = new Declarative();
+	Boolean b = false;
+	String[] str = s.sentence.substring(0, s.sentence.length() - 1).split(" ");
+	for(int i = 0; i < str.length; i++) {
+	    if(n.contains(str[i])) {
+		d.generate(str[i]);
+		b = true;
+		break;
+	    }
+	}
+	if (b == false) return randAnswer(s);
+	else return d;
     }
     
     //if all else fails
@@ -131,7 +149,7 @@ public class Reader {
 	int rand = (int)(Math.random() * 2);
 	if(rand == 0) s = new Declarative();
         else s = new Question();
-	s.generate();
+	s.generate("");
 	return s;
     }
 
@@ -140,6 +158,11 @@ public class Reader {
 	String s = "";
 	Sentence input;
 	begin();
+	//completed before while loop so as to only perform once
+        ParseCSV f = new ParseCSV("nouns.txt");
+        ParseCSV g = new ParseCSV("verbs.txt");
+	ArrayList<String> nouns = f.words;
+	ArrayList<String> verbs = g.words;
 	while(! s.equals("exit")) {
 	    Sentence response;
 	    s = Keyboard.readString();
@@ -150,7 +173,7 @@ public class Reader {
 		response = farewell(input);
 		terminate = true;
 	    }
-	    else response = randAnswer(input);
+	    else response = respondRelated(input, nouns, verbs);
 	    if(!s.equals("exit")
 	       && !s.equals("help"))
 		System.out.println(response);
