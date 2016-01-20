@@ -66,6 +66,9 @@ Reader:
 - improved for questions
 - generates Filler responses if it doesn't know what to do
 
+~~~~ EXTRAS ~~~~
+- CSV parser created
+
 ------ TO BE COMPLETED ------
 
 ~~~~ CLASS STRUCTURE ~~~~
@@ -83,5 +86,6 @@ NounPhrase:
 --- generate Fillers for a lot
 
 ~~~~ EXTRAS ~~~~
-- vocabulary sorted into CSV files, retrieved & sorted through CSV
+CSV:
+- must populate CSV files and teach NounPhrase to extract from these rather than constant arrays
 - try to learn how to use html parser to use dictionary.com to pull plural versions of nouns since there are many special cases that can not all be hardcoded.
