@@ -60,6 +60,17 @@ public class NounPhrase extends Phrase {
 	addAdj();
     }
 
+    //if you wanna make a nounphrase w/ a specific noun!!
+    public NounPhrase(String s) {
+	subj = 3;
+	if(s.equals("I")) subj = 1;
+	if(s.equals("you")) subj = 2;
+	word = s;
+	if((int)(Math.random() * 3) == 2) pluralize();
+	phrase = word;
+	addAdj();
+    }
+
     public void addAdj() {
 	if (subj != 3) return;
 	for(int i = 0; i < (int)(Math.random() * 3); i++) {
