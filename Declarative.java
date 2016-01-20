@@ -1,8 +1,9 @@
 public class Declarative extends Sentence {
 
-    public String generate() {
-	//the noun-phrase can be anything!
-	NounPhrase n = new NounPhrase();
+    public String generate(String s) {
+	NounPhrase n;
+	if(s.equals("")) n = new NounPhrase();
+	else n = new NounPhrase(s);
 	//if necessary, add article
 	n.addArt();
 	//verbs are only conjugated for singular third-person subjects
