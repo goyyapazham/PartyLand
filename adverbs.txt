@@ -1,1 +1,16 @@
-loudly, kindly, carelessly, softly, interestingly, quickly, well, rudely, jokingly, oddly, abruptly, silently, unequivocally, timidly, slowly, sadly
+loudly
+kindly
+carelessly
+softly
+interestingly
+quickly
+well
+rudely
+jokingly
+oddly
+abruptly
+silently
+unequivocally
+timidly
+slowly
+sadly

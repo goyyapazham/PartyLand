@@ -1,1 +1,12 @@
-slimy, clean, dirty, big, small, sad, smelly, soft, loud, mean, generous, wonderful
+slimy
+clean
+dirty
+big
+small
+sad
+smelly
+soft
+loud
+mean
+generous
+wonderful
