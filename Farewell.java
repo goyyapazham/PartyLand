@@ -1,6 +1,6 @@
 public class Farewell extends Sentence {
     
-    String[] farewell = new String[]{"goodbye","see you later","have a nice day","regards","all the best"};
+    String[] farewell = new String[]{"bye", "goodbye","see you later","have a nice day","regards","all the best"};
     
     public String generate() {
 	//choose a farewell message from farewell

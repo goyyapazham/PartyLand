@@ -1,7 +1,9 @@
 import cs1.Keyboard;
 
 public class Reader {
-
+    //for farewells terminate program afterwards
+    private boolean terminate = false;
+    
     //speaking info
     public void begin() {
 	System.out.println("Hello! Welcome. My name is Kumar.");
@@ -107,6 +109,23 @@ public class Reader {
 	return greet;
     }
 
+    //Farewell
+    public boolean isFarewell( Sentence s ) {
+	Farewell farewell = new Farewell();
+	for ( String x : farewell.farewell ) {
+	    if ( search ( x, s.sentence ) ) {
+		return true;
+	    }
+	}
+	return false;
+    }
+    
+    public Sentence farewell( Sentence s ) {	
+	Farewell farewell = new Farewell();
+	farewell.generate();
+	return farewell;
+    }
+    
     //if all else fails
     public Sentence randAnswer(Sentence s) {
 	int rand = (int)(Math.random() * 2);
@@ -127,11 +146,16 @@ public class Reader {
 	    input = new Input(s);
 	    if ( isGreet(input) ) response = greet(input);
 	    else if(isQuestion(input.sentence)) response = basicQAnswer(input);
+	    else if ( isFarewell(input) ) {
+		response = farewell(input);
+		terminate = true;
+	    }
 	    else response = randAnswer(input);
 	    if(!s.equals("exit")
 	       && !s.equals("help"))
 		System.out.println(response);
 	    if(s.equals("help")) help();
+	    if (terminate) System.exit(0);
 	}
     }
 
