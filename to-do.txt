@@ -65,11 +65,11 @@ Reader:
 ~~~~ RESPONSE MECHANISM ~~~~
 - improved for questions
 - generates Filler responses if it doesn't know what to do
-
+- recognizes greetings and farewell and responds to them
+- terminates program after a farewell
 ~~~~ EXTRAS ~~~~
 - CSV parser created
 - NounPhrase and VerbPhrase's static String arrays parse from txt files (CSVs)
-
 ------ TO BE COMPLETED ------
 
 ~~~~ CLASS STRUCTURE ~~~~
