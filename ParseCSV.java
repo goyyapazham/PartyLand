@@ -33,6 +33,7 @@ public class ParseCSV {
 	    words.set(i, input.substring(0, input.indexOf(",")));
 	    input = input.substring(input.indexOf(",") + 2);
 	}
+
 	words.set(words.size() - 1, input);
 	return words;
     }
