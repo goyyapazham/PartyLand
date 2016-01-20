@@ -128,11 +128,10 @@ public class Reader {
     }
 
     public Sentence respondRelated(Sentence s,
-				   ArrayList<String> n,
-				   ArrayList<String> v) {
-	Sentence d = new Declarative();
+				   ArrayList<String> n) {
+	Declarative d = new Declarative();
 	Boolean b = false;
-	String[] str = s.sentence.substring(0, s.sentence.length() - 1).split(" ");
+	String[] str = s.sentence.split(" ");
 	for(int i = 0; i < str.length; i++) {
 	    if(n.contains(str[i])) {
 		d.generate(str[i]);
@@ -160,9 +159,7 @@ public class Reader {
 	begin();
 	//completed before while loop so as to only perform once
         ParseCSV f = new ParseCSV("nouns.txt");
-        ParseCSV g = new ParseCSV("verbs.txt");
 	ArrayList<String> nouns = f.words;
-	ArrayList<String> verbs = g.words;
 	while(! s.equals("exit")) {
 	    Sentence response;
 	    s = Keyboard.readString();
@@ -173,7 +170,7 @@ public class Reader {
 		response = farewell(input);
 		terminate = true;
 	    }
-	    else response = respondRelated(input, nouns, verbs);
+	    else response = respondRelated(input, nouns);
 	    if(!s.equals("exit")
 	       && !s.equals("help"))
 		System.out.println(response);
