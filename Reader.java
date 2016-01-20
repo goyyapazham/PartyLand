@@ -85,6 +85,28 @@ public class Reader {
 	return s;
     }
 
+    //Greeting
+    public boolean isGreet( Sentence s ) {
+	Greeting greet = new Greeting();
+	for ( String x : greet.greet1 ) {
+	    if ( search ( x, s.sentence ) ) {
+		return true;
+	    }
+	}
+	for ( String x : greet.greet2 ) {
+	    if ( search ( x, s.sentence ) ) {
+		return true;
+	    }
+	}
+	return false;
+    }
+    
+    public Sentence greet( Sentence s ) {	
+	Greeting greet = new Greeting();
+	greet.generate();
+	return greet;
+    }
+
     //if all else fails
     public Sentence randAnswer(Sentence s) {
 	int rand = (int)(Math.random() * 2);
@@ -103,7 +125,8 @@ public class Reader {
 	    Sentence response;
 	    s = Keyboard.readString();
 	    input = new Input(s);
-	    if(isQuestion(input.sentence)) response = basicQAnswer(input);
+	    if ( isGreet(input) ) response = greet(input);
+	    else if(isQuestion(input.sentence)) response = basicQAnswer(input);
 	    else response = randAnswer(input);
 	    if(!s.equals("exit")
 	       && !s.equals("help"))
