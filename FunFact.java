@@ -1,8 +1,8 @@
 public class FunFact extends Sentence {
 
     protected int type;
-
-    public String generate() {
+    
+    public String generate(String s) {
 	type = (int)(Math.random() * 2);
 	//fun facts /must/ be about third-person nouns, must be plural
 	NounPhrase n = new NounPhrase(3, true);

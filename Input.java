@@ -4,7 +4,7 @@ public class Input extends Sentence {
 	sentence = s;
     }
 
-    public String generate() {
+    public String generate(String s) {
 	return sentence;
     }
 

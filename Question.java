@@ -1,6 +1,6 @@
 public class Question extends Sentence {
 
-    public String generate() {
+    public String generate(String s) {
 	//noun-phrase can be! anything!
 	NounPhrase n = new NounPhrase();
 	//the noun-phrase may need an article... (if the subject doesn't allow for articles, the addArt() method won't add an article)

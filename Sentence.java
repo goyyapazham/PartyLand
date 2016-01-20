@@ -2,7 +2,7 @@ public abstract class Sentence {
 
     protected String sentence;
 
-    public abstract String generate();
+    public abstract String generate(String s);
     public abstract void punctuate();
 
     public String toString() {

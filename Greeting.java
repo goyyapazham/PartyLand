@@ -5,7 +5,7 @@ public class Greeting extends Sentence {
     //if you have a question at end of greeting or not
     boolean greetLong = false;
 
-    public String generate() {
+    public String generate(String s) {
 	//choose a greeting from greet1
 	sentence = greet1[ (int) (Math.random() * greet1.length) ];
 	//add greeting question from greet2
