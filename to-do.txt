@@ -68,6 +68,7 @@ Reader:
 
 ~~~~ EXTRAS ~~~~
 - CSV parser created
+- NounPhrase and VerbPhrase's static String arrays parse from txt files (CSVs)
 
 ------ TO BE COMPLETED ------
 
@@ -86,6 +87,5 @@ NounPhrase:
 --- generate Fillers for a lot
 
 ~~~~ EXTRAS ~~~~
-CSV:
-- must populate CSV files and teach NounPhrase to extract from these rather than constant arrays
+- need to populate CSV files
 - try to learn how to use html parser to use dictionary.com to pull plural versions of nouns since there are many special cases that can not all be hardcoded.
