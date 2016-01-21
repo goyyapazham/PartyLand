@@ -132,7 +132,12 @@ public class Reader {
 	Declarative d = new Declarative();
 	Boolean b = false;
 	String[] str = s.sentence.split(" ");
+	//singular version of all nouns in input
 	for(int i = 0; i < str.length; i++) {
+	    HTMLParser singular = new HTMLParser( str[i] );
+	    singular.startConnection();
+	    singular.singular();
+	    str[i] = singular.toString();
 	    if(n.contains(str[i])) {
 		d.generate(str[i]);
 		b = true;
