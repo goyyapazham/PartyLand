@@ -78,10 +78,12 @@ Reader:
 ~~~~ RESPONSE MECHANISM ~~~~
 - noun and verb text-files populated
 - linguistically, if not actually logically, "related" responses (generates a Declarative based on a noun if it recognizes it)
+- recognize plural nouns and repson to them
+- reject gibberish
 
 ~~~~ EXTRAS ~~~~
 - CSV parser uses ArrayLists (slightly easier to work)
-
+- HTMLParser looks for singular versions of plural nouns
 ------ TO BE COMPLETED ------
 
 ~~~~ CLASS STRUCTURE ~~~~
