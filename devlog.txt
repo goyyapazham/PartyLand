@@ -24,4 +24,4 @@ Team PartyLand: Nalanda Sharadjaya and Pardeep Singh
 
 1/20/16 (In-Class): Updated CSV Parser to work with ArrayLists as opposed to String arrays
 1/20/16 (Nala): Generates semi-related responses if it can, by searching for individual words from an input in a larger list of nouns
-1/20/16 (Pardeep): HTMLParser finds singular version of plural nouns(input might contain plural versions)
+1/20/16 (Pardeep): HTMLParser finds singular version of plural nouns(input might contain plural versions) Kumar understands plural nouns and rejects all inputs containing gibberish
