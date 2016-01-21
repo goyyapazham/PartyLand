@@ -7,7 +7,7 @@ public class HTMLParser {
     protected String HTML;
     protected String word;
     protected String keyHTML = "<span class=\"dbox-pg\">noun</span>, <span class=\"dbox-pg\">plural </span>";
-  
+    protected String keyHTML2 = "<h1 class=\"head-entry\"><span class=\"me\" data-syllable=\"";
     public HTMLParser( String w ) {
 	HTML = "";
 	word = w;
@@ -49,12 +49,21 @@ public class HTMLParser {
 	    word = HTML.substring( pluralLocation, pluralLocationEnd );
 	}
     }
+    public void singular() {
+	if ( search( keyHTML2, HTML ) > 0 ) {
+	    int x = search( keyHTML2, HTML );
+	    int singularLocation = search( ">", HTML.substring(x) ) + x;
+	    int singularLocationEnd = search( "<", HTML.substring(singularLocation) ) + singularLocation - 1;
+	    word = HTML.substring( singularLocation, singularLocationEnd );
+	}
+    }
+	
     public static void main( String[] args ) {
 	/*
-	HTMLParser pardeep = new HTMLParser("berry");
+	HTMLParser pardeep = new HTMLParser("babies");
 	pardeep.startConnection();
-	pardeep.plural();
+	pardeep.singular();
 	System.out.println(pardeep);
-	*/	
+	*/
     }
 }
