@@ -138,6 +138,10 @@ public class Reader {
 	    singular.startConnection();
 	    singular.singular();
 	    str[i] = singular.toString();
+	    if ( str[i].equals("Do you even English?") ) {
+		s.sentence = "Do you even English?";
+		return s;
+	    }
 	    if(n.contains(str[i])) {
 		d.generate(str[i]);
 		b = true;

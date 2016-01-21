@@ -19,6 +19,11 @@ public class VerbPhrase extends Phrase {
 	    //add adverb to verb-phrase
 	    phrase += " " + adv;
 	}
+	else if ( (int) (Math.random() * 4) == 0 ) {
+	    NounPhrase extra = new NounPhrase();
+	    String str = extra.toString();
+	    phrase += " " + str;
+	}
     }
 
     //the conjugate method currently only works with singular & plural third-person subjects, so it's very limited

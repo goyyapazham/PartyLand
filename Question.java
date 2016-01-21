@@ -1,5 +1,9 @@
 public class Question extends Sentence {
-
+    public Question() {
+    }
+    public Question( String s ) {
+	sentence = s;
+    }
     public String generate(String s) {
 	//noun-phrase can be! anything!
 	NounPhrase n = new NounPhrase();

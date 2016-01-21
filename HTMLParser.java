@@ -25,8 +25,9 @@ public class HTMLParser {
 	    scanner.useDelimiter("\\Z");
 	    HTML = scanner.next();
 	}
-	catch ( Exception ex ) {
-	    ex.printStackTrace();
+	catch ( Exception e ) {
+	    word = "Do you even English?";
+		
 	}
     }
 
