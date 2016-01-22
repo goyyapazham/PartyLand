@@ -4,6 +4,17 @@ import java.util.ArrayList;
 public class Kumar {
     //for farewells terminate program afterwards
     private boolean terminate = false;
+    private static String punctuation = ".,;:!?";
+    private static String digits = "0123456789";
+
+    public static String strip(String s) {
+	String retStr = "";
+	for(int i = 0; i < s.length(); i++) {
+	    if (punctuation.indexOf(s.substring(i, i + 1)) == -1)
+		retStr += s.substring(i, i + 1);
+	}
+	return retStr;
+    }
     
     //speaking info
     public void begin() {
@@ -61,29 +72,28 @@ public class Kumar {
     public Sentence basicQAnswer(Sentence s) {
 	String str;
 	if ( questionType(s.sentence).equals("what") ) {
-	    str = "What is that? I don't know either but... \n ";
+	    str = "I don't know.";
 	}
 	else if ( questionType(s.sentence).equals("when") ) {
-	    str = "When is that? I don't know either but... \n ";
+	    str = "How lovely.";
 	}
 	else if ( questionType(s.sentence).equals("where") ) {
-	    str = "Where is that? I don't know either but... \n ";
+	    str = "That could be interesting.";
 	}
 	else if ( questionType(s.sentence).equals("who") ) {
-	    str = "Who is that? I don't know either but... \n ";
+	    str = "Who? I'm all alone here.";
 	}
 	else if ( questionType(s.sentence).equals("why") ) {
-	    str = "Why did that happen? I don't know either but... \n ";
+	    str = "That's the question.";
 	}
 	else if ( questionType(s.sentence).equals("how") ) {
-	    str = "How is that possible? I don't know either but... \n ";
+	    str = "I'm not god, don't ask me!";
 	}
 	else {
 	    Sentence filler = new Filler();
-	    str = filler.generate("") + " ";
+	    str = filler.generate("");
 	}
-	s = new FunFact();
-	str += s.generate("");
+	s = new Filler();
 	s.sentence = str;
 	return s;
     }
@@ -93,11 +103,13 @@ public class Kumar {
 	Greeting greet = new Greeting();
 	for ( String x : greet.greet1 ) {
 	    if ( search ( x, s.sentence ) ) {
+		System.out.println("pardeep");
 		return true;
 	    }
 	}
 	for ( String x : greet.greet2 ) {
 	    if ( search ( x, s.sentence ) ) {
+		System.out.println("nala");
 		return true;
 	    }
 	}
@@ -132,6 +144,7 @@ public class Kumar {
 	Declarative d = new Declarative();
 	Boolean b = false;
 	String[] str = s.sentence.split(" ");
+	str[str.length - 1] = strip(str[str.length - 1]);
 	//singular version of all nouns in input
 	for(int i = 0; i < str.length; i++) {
 	    HTMLParser singular = new HTMLParser( str[i] );

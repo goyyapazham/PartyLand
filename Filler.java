@@ -1,6 +1,15 @@
 public class Filler extends Sentence {
 
-    private String[] responses = new String[]{"Hmm...interesting.", "Awkward silence...", "Carpe diem.", "For your information, I am a staunch feminist.", "You're pretty."};
+    private String[] responses = parseCSV("responses.txt");
+
+    public String[] parseCSV(String filename) {
+	ParseCSV f = new ParseCSV(filename);
+	String[] retArr = new String[f.words.size()];
+	for(int i = 0; i < f.words.size(); i++) {
+	    retArr[i] = f.words.get(i);
+	}
+	return retArr;
+    }
     
     public String generate(String s) {
 	return responses[(int)(Math.random() * responses.length)];

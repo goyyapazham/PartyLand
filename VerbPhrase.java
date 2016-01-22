@@ -23,7 +23,17 @@ public class VerbPhrase extends Phrase {
 
     //the conjugate method currently only works with singular & plural third-person subjects, so it's very limited
     public void conjugate() {
-	word += "s";
+	String lastTwo = word.substring(word.length() - 2);
+	String lastOne = lastTwo.substring(1);
+	if(lastTwo.equals("ss")
+	   || lastTwo.equals("ch")
+	   || lastTwo.equals("sh")) {
+	    word += "es";
+	}
+	else if(lastOne.equals("y")) {
+	    word = word.substring(0, word.length() - 1) + "ies";
+	}
+	else word += "s";
     }
 
     public String toString() {
