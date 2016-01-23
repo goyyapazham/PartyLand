@@ -41,6 +41,7 @@ public class ParseCSV {
 	    }
 	} catch(IOException e) {
 	    System.out.println("oops");
+	    System.out.println(fileName);
 	}
 	return words;
     }

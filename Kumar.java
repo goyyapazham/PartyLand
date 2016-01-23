@@ -74,22 +74,28 @@ public class Kumar {
 	    str = "The meaning of life is 42.";
 	}
 	else if ( questionType(s.sentence).equals("what") ) {
-	    str = "I don't know.";
+	    What answer = new What(s);
+	    str = answer.toString();
 	}
 	else if ( questionType(s.sentence).equals("when") ) {
-	    str = "It might be tomorrow.";
+	    When answer = new When(s);
+	    str = answer.toString();
 	}
 	else if ( questionType(s.sentence).equals("where") ) {
-	    str = "Did you try Google Maps?";
+	    Where answer = new Where(s);
+	    str = answer.toString();
 	}
 	else if ( questionType(s.sentence).equals("who") ) {
-	    str = "Who? I'm all alone here.";
+	    Who answer = new Who(s);
+	    str = answer.toString();
 	}
 	else if ( questionType(s.sentence).equals("why") ) {
-	    str = "That's the question.";
+	    Why answer = new Why(s);
+	    str = answer.toString();
 	}
 	else if ( questionType(s.sentence).equals("how") ) {
-	    str = "I'm not god, don't ask me!";
+	    How answer = new How(s);
+	    str = answer.toString();
 	}
 	else {
 	    Sentence filler = new Filler();
