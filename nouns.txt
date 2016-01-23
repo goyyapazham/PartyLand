@@ -76,6 +76,7 @@ apparel
 appeal
 appendix
 apple
+apples
 appliance
 approval
 april
@@ -291,6 +292,7 @@ building
 bulb
 bull
 bulldozer
+bug
 bumper
 bun
 burglar
