@@ -137,6 +137,14 @@ public class Kumar {
 	farewell.generate("");
 	return farewell;
     }
+    public static boolean isPunc( String searching ) {
+     	for ( int i = 0; i < punctuation.length(); i++) {
+	    if ( searching.equals( punctuation.substring( i, i+1 ) ) ) {
+		return true;
+	    }
+	}
+	return false;
+    }
 
     public Sentence respondRelated(Sentence s,
 				   ArrayList<String> n) {
@@ -146,6 +154,9 @@ public class Kumar {
 	str[str.length - 1] = strip(str[str.length - 1]);
 	//singular version of all nouns in input
 	for(int i = 0; i < str.length; i++) {
+	    if ( isPunc( str[i].substring( str[i].length() - 1 ) ) ) {
+		str[i] = str[i].substring( 0, str[i].length() - 1 );
+	    }
 	    HTMLParser singular = new HTMLParser( str[i] );
 	    singular.startConnection();
 	    singular.singular();
