@@ -1,7 +1,10 @@
 public class NounPhrase extends Phrase {
 
     //constant arrays
-    private String[] nouns = parseCSV("nouns.txt");
+    private String[] objects = parseCSV("objects.txt");
+    private String[] colors = parseCSV("colors.txt");
+    private String[] foods = parseCSV("foods.txt");
+    private String[] animals = parseCSV("animals.txt");
     private String[] adjectives = parseCSV("adjectives.txt");
 
     //used to conjugate (see class VerbPhrase)
@@ -13,7 +16,7 @@ public class NounPhrase extends Phrase {
 	this((int)(Math.random() * 3) == 0);
     }
 
-    //if nouns /must/ be pluralized
+    //if objects /must/ be pluralized
     public NounPhrase(boolean boo) {
 	int getSubj = (int)(Math.random() * 8);
 	//FIRST: identify /subject/ word and its point-of-view integer
@@ -30,7 +33,7 @@ public class NounPhrase extends Phrase {
 	}
 	//75% chance of getting third-person
 	else {
-	    word = nouns[(int)(Math.random() * nouns.length)];
+	    word = objects[(int)(Math.random() * objects.length)];
 	    if(boo) pluralize();
 	}
 	//SECOND: transfer word to phrase
@@ -51,7 +54,7 @@ public class NounPhrase extends Phrase {
 	    word = "you";
 	}
 	else {
-	    word = nouns[(int)(Math.random() * nouns.length)];
+	    word = objects[(int)(Math.random() * objects.length)];
 	    if(boo) pluralize();
 	}
 	//SECOND: transfer word to phrase
@@ -86,7 +89,7 @@ public class NounPhrase extends Phrase {
 
     //never used in NounPhrase bc only certain sentence types require articles
     public void addArt() {
-	//only third-person nouns require articles
+	//only third-person objects require articles
 	if(subj == 3) phrase = "the " + phrase;
     }
 

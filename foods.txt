@@ -1,0 +1,15 @@
+pasta
+pizza
+hot dog
+salad
+curry
+rice
+soup
+bread
+bagel
+cereal
+pancake
+french toast
+omelette
+cheese fry
+burger
