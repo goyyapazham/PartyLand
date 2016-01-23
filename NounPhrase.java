@@ -2,9 +2,6 @@ public class NounPhrase extends Phrase {
 
     //constant arrays
     private String[] objects = parseCSV("objects.txt");
-    private String[] colors = parseCSV("colors.txt");
-    private String[] foods = parseCSV("foods.txt");
-    private String[] animals = parseCSV("animals.txt");
     private String[] adjectives = parseCSV("adjectives.txt");
 
     //used to conjugate (see class VerbPhrase)

@@ -5,7 +5,15 @@ public class Kumar {
     //for farewells terminate program afterwards
     private boolean terminate = false;
     private static String punctuation = ".,;:!?";
-    private static String digits = "0123456789";
+    
+    ParseCSV f = new ParseCSV("objects.txt");
+    ParseCSV g = new ParseCSV("foods.txt");
+    ParseCSV h = new ParseCSV("colors.txt");
+    ParseCSV j = new ParseCSV("animals.txt");
+    ArrayList<String> objects = f.words;
+    ArrayList<String> foods = g.words;
+    ArrayList<String> colors = h.words;
+    ArrayList<String> animals = j.words;
 
     public static String strip(String s) {
 	String retStr = "";
@@ -34,7 +42,7 @@ public class Kumar {
     //for response mechanism
 
     /* ~~~~ QUESTION ~~~~
-       - isQ8estion()
+       - isQuestion()
        - questionType()
        - basicQAnswer()
        ~~~~~~~~~~~~~~~~~~ */
@@ -60,14 +68,19 @@ public class Kumar {
     
     public Sentence basicQAnswer(Sentence s) {
 	String str;
-	if ( questionType(s.sentence).equals("what") ) {
+	if ( search("meaning", s.sentence)
+	     && search("of", s.sentence)
+	     && search("life", s.sentence) ) {
+	    str = "The meaning of life is 42.";
+	}
+	else if ( questionType(s.sentence).equals("what") ) {
 	    str = "I don't know.";
 	}
 	else if ( questionType(s.sentence).equals("when") ) {
-	    str = "How lovely.";
+	    str = "It might be tomorrow.";
 	}
 	else if ( questionType(s.sentence).equals("where") ) {
-	    str = "That could be interesting.";
+	    str = "Did you try Google Maps?";
 	}
 	else if ( questionType(s.sentence).equals("who") ) {
 	    str = "Who? I'm all alone here.";
@@ -146,13 +159,12 @@ public class Kumar {
 	return false;
     }
 
-    public Sentence respondRelated(Sentence s,
-				   ArrayList<String> n) {
+    public Sentence respondRelated(Sentence s) {
 	Declarative d = new Declarative();
 	Boolean b = false;
 	String[] str = s.sentence.split(" ");
 	str[str.length - 1] = strip(str[str.length - 1]);
-	//singular version of all nouns in input
+	//singular version of all objects in input
 	for(int i = 0; i < str.length; i++) {
 	    if ( isPunc( str[i].substring( str[i].length() - 1 ) ) ) {
 		str[i] = str[i].substring( 0, str[i].length() - 1 );
@@ -161,11 +173,11 @@ public class Kumar {
 	    singular.startConnection();
 	    singular.singular();
 	    str[i] = singular.toString();
-	    if ( str[i].equals("Do you even English?") ) {
+	    if (str[i].equals("Do you even English?")) {
 		s.sentence = "Do you even English?";
 		return s;
 	    }
-	    if(n.contains(str[i])) {
+	    if(objects.contains(str[i])) {
 		d.generate(str[i]);
 		b = true;
 		break;
@@ -190,8 +202,6 @@ public class Kumar {
 	Sentence input;
 	begin();
 	//completed before while loop so as to only perform once
-        ParseCSV f = new ParseCSV("objects.txt");
-	ArrayList<String> nouns = f.words;
 	while(! s.equals("exit")) {
 	    Sentence response;
 	    s = Keyboard.readString();
@@ -202,7 +212,7 @@ public class Kumar {
 		response = farewell(input);
 		terminate = true;
 	    }
-	    else response = respondRelated(input, nouns);
+	    else response = respondRelated(input);
 	    if(!s.equals("exit")
 	       && !s.equals("help"))
 		System.out.println(response);
