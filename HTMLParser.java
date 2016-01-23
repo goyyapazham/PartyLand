@@ -1,16 +1,24 @@
 import java.net.URLConnection;
 import java.net.URL;
 import java.util.Scanner;
+import java.lang.Throwable;
 
 public class HTMLParser {
 
     protected String HTML;
     protected String word;
+    protected String URL;
+    //pluralize
     protected String keyHTML = "<span class=\"dbox-pg\">noun</span>, <span class=\"dbox-pg\">plural </span>";
+    //singular
     protected String keyHTML2 = "<h1 class=\"head-entry\"><span class=\"me\" data-syllable=\"";
+    //suggestions
+    protected String keyHTML3 = "<span class=\"me\" data-syllable=\"";
+
     public HTMLParser( String w ) {
 	HTML = "";
 	word = w;
+	URL = "http://dictionary.reference.com/browse/" + word.toLowerCase() + "?s=t";
     }
 
     public String toString() {
@@ -20,14 +28,29 @@ public class HTMLParser {
     public void startConnection() {
 	URLConnection connection = null;
 	try {
-	    connection =  new URL("http://dictionary.reference.com/browse/" + word.toLowerCase() + "?s=t").openConnection();
+	    connection = new URL(URL).openConnection();
+	    //System.out.println(connection);
 	    Scanner scanner = new Scanner(connection.getInputStream());
+	    //System.out.println("error2");
 	    scanner.useDelimiter("\\Z");
+	    //System.out.println("error3");
 	    HTML = scanner.next();
+	    //System.out.println("error4");
 	}
 	catch ( Exception e ) {
+	    /*
+	    System.out.println("Did you mean?");
+	    URL = "http://dictionary.reference.com/misspelling?term=" + word.toLowerCase() + "&s=t";
+	    System.out.println(URL);
+	    startConnection();
+	    System.out.println("Success!");
+	    suggestion();
+	    System.out.println(word);
+	    URL =  "http://dictionary.reference.com/browse/" + word.toLowerCase() + "?s=t";
+	    System.out.println(URL);
+	    startConnection();
+	    */
 	    word = "Do you even English?";
-		
 	}
     }
 
@@ -58,13 +81,22 @@ public class HTMLParser {
 	    word = HTML.substring( singularLocation, singularLocationEnd );
 	}
     }
-	
+
+    public void suggestion() {
+	if ( search( keyHTML3, HTML ) > 0 ) {
+	    int x = search( keyHTML3, HTML );
+	    int suggestionLocation = search( ">", HTML.substring(x) ) + x;
+	    int suggestionLocationEnd = search( "<", HTML.substring(suggestionLocation) ) + suggestionLocation - 1;
+	    word = HTML.substring( suggestionLocation, suggestionLocationEnd );
+	    System.out.println(word);
+	}
+	System.out.println(word);
+    }
+    
     public static void main( String[] args ) {
-	/*
-	HTMLParser pardeep = new HTMLParser("babies");
+	HTMLParser pardeep = new HTMLParser("housse");
 	pardeep.startConnection();
-	pardeep.singular();
+	pardeep.plural();
 	System.out.println(pardeep);
-	*/
     }
 }

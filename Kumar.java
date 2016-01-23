@@ -32,17 +32,6 @@ public class Kumar {
     }
 
     //for response mechanism
-    public static boolean search( String searching, String input ) {
-	int length = searching.length();
-	input = input.toLowerCase();
-	if ( searching.equals(input) ) return true;
-	for ( int i = 0; i < input.length() - length; i++) {
-	    if ( input.substring(i,i+length).equals(searching) ) {
-		return true;
-	    }
-	}
-	return false;
-    }
 
     /* ~~~~ QUESTION ~~~~
        - isQ8estion()
@@ -99,17 +88,27 @@ public class Kumar {
     }
 
     //Greeting
+    public static boolean search( String searching, String input ) {
+	input = input.toLowerCase();
+	String[] inputArray = input.split(" ");
+	if ( searching.equals(input) ) return true;
+	for ( int i = 0; i < inputArray.length; i++) {
+	    if ( searching.equals( inputArray[i] ) ) {
+		return true;
+	    }
+	}
+	return false;
+    }
+    
     public boolean isGreet( Sentence s ) {
 	Greeting greet = new Greeting();
 	for ( String x : greet.greet1 ) {
 	    if ( search ( x, s.sentence ) ) {
-		System.out.println("pardeep");
 		return true;
 	    }
 	}
 	for ( String x : greet.greet2 ) {
 	    if ( search ( x, s.sentence ) ) {
-		System.out.println("nala");
 		return true;
 	    }
 	}
