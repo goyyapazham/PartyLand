@@ -1,0 +1,17 @@
+red
+blue
+green
+orange
+fuchsia
+purple
+yellow
+grey
+black
+white
+indigo
+violet
+pink
+magenta
+lavender
+rose
+cerulean
