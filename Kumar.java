@@ -10,10 +10,10 @@ public class Kumar {
     ParseCSV g = new ParseCSV("foods.txt");
     ParseCSV h = new ParseCSV("colors.txt");
     ParseCSV j = new ParseCSV("animals.txt");
-    ArrayList<String> objects = f.words;
-    ArrayList<String> foods = g.words;
-    ArrayList<String> colors = h.words;
-    ArrayList<String> animals = j.words;
+    private ArrayList<String> objects = f.words;
+    private ArrayList<String> foods = g.words;
+    private ArrayList<String> colors = h.words;
+    private ArrayList<String> animals = j.words;
 
     public static String strip(String s) {
 	String retStr = "";
@@ -106,6 +106,9 @@ public class Kumar {
 	String[] inputArray = input.split(" ");
 	if ( searching.equals(input) ) return true;
 	for ( int i = 0; i < inputArray.length; i++) {
+	    if ( isPunc( inputArray[i].substring( inputArray[i].length() - 1 ) ) ) {
+		inputArray[i] = inputArray[i].substring( 0, inputArray[i].length() - 1 );
+	    }
 	    if ( searching.equals( inputArray[i] ) ) {
 		return true;
 	    }
