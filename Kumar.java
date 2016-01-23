@@ -179,7 +179,7 @@ public class Kumar {
 	Sentence input;
 	begin();
 	//completed before while loop so as to only perform once
-        ParseCSV f = new ParseCSV("nouns.txt");
+        ParseCSV f = new ParseCSV("objects.txt");
 	ArrayList<String> nouns = f.words;
 	while(! s.equals("exit")) {
 	    Sentence response;
