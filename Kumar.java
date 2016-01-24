@@ -92,7 +92,8 @@ public class Kumar {
 	boolean retBool = false;
 	if(input.substring(input.length() - 1).equals("?") ||
 	   ! questionType(input).equals("unknown") ||
-	   toDoStructure(input)) {
+	   irrVerbStructure(input, "do") ||
+	   irrVerbStructure(input, "are")) {
 	    retBool = true;
 	}
 	return retBool;
@@ -115,22 +116,11 @@ public class Kumar {
 	     && search("life", s.sentence) ) {
 	    str = "The meaning of life is 42.";
 	}
-	else if ( toDoStructure(s.sentence) ) {
-	    String[] L = s.sentence.split(" ");
-	    L[L.length - 1] = strip(L[L.length - 1]);
-	    if(L[1].equals("I")) str = "You do.";
-	    else if(L[1].equals("you")) str = "I do.";
-	    else if(L[1].equals("we")) str = "We do.";
-	    else if(L[1].equals("he")) str = "He does.";
-	    else if(L[1].equals("she")) str = "She does.";
-	    else if(L[1].equals("it") ||
-		    L[1].equals("the") &&
-		    (objects.contains(L[2]) ||
-		     animals.contains(L[2]) ||
-		     colors.contains(L[2]) ||
-		     foods.contains(L[2])))
-		str = "It does.";
-	    else str = "They do.";
+	else if (irrVerbStructure(s.sentence, "do")) {
+	    str = irrVerbResponse(s.sentence, "do");
+	}
+	else if (irrVerbStructure(s.sentence, "are")) {
+	    str = irrVerbResponse(s.sentence, "are");
 	}
 	else if ( questionType(s.sentence).equals("what") ) {
 	    Sentence answer = new What(s);
@@ -171,77 +161,87 @@ public class Kumar {
 	return s;
     }
 
-    public static boolean toDoStructure(String s) {
+    public static boolean irrVerbStructure(String s, String verb) {
+	String v1, v2, v3, v4;
+	if(verb.equals("do")) {
+	    v1 = "Do";
+	    v2 = "do";
+	    v3 = "Does";
+	    v4 = "does";
+	}
+	else {
+	    v1 = "Are";
+	    v2 = "are";
+	    v3 = "Is";
+	    v4 = "is";
+	}
 	String[] str = s.split(" ");
 	str[str.length - 1] = strip(str[str.length - 1]);
-<<<<<<< HEAD
-	HTMLParser singular1 = new HTMLParser( str[1] );
-	singular1.startConnection();
-	singular1.singular();
-	if(!str[1].equals("I"))
-	    str[1] = singular1.toString();
-	HTMLParser singular2 = new HTMLParser( str[2] );
-	singular2.startConnection();
-	singular2.singular();
-	str[2] = singular2.toString();
-	if (( (str[0].equals("Do") || str[0].equals("do") ) &&
-	     (str[1].equals("I")
-	      || str[1].equals("you")
-	      || str[1].equals("we")
-	      || str[1].equals("they")
-	      || objects.contains(str[1])
-	      || animals.contains(str[1])
-	      || colors.contains(str[1])
-	      || foods.contains(str[1])
-	      || str[1].equals("the") &&
-	      (objects.contains(str[2])
-	       || animals.contains(str[2])
-	       || colors.contains(str[2])
-	       || foods.contains(str[2])))) ||
-	    ( (str[0].equals("Does") || str[0].equals("does")) &&
-	     (str[1].equals("she")
-	      || str[1].equals("he")
-	      || str[1].equals("it")
-	      || str[1].equals("the") && objects.contains(str[2]))))
-	    return true;
-=======
 	if (str.length > 1) {
 	    HTMLParser singular1 = new HTMLParser( str[1] );
 	    singular1.startConnection();
 	    singular1.singular();
 	    if(!str[1].equals("I"))
 		str[1] = singular1.toString();
+	    if(( (str[0].equals(v1) || str[0].equals(v2)) &&
+		 (str[1].equals("I")
+		  || str[1].equals("you")
+		  || str[1].equals("we")
+		  || str[1].equals("they") ) ||
+		 (str[0].equals(v3) || str[0].equals(v4)) &&
+		 (str[1].equals("he")
+		  || str[1].equals("she")
+		  || str[1].equals("it")) ) )
+		return true;
 	}
 	if (str.length > 2) {
 	    HTMLParser singular2 = new HTMLParser( str[2] );
 	    singular2.startConnection();
 	    singular2.singular();
 	    str[2] = singular2.toString();
-	    if (( (str[0].equals("Do") || str[0].equals("do") ) &&
-		  (str[1].equals("I")
-		   || str[1].equals("you")
-		   || str[1].equals("we")
-		   || str[1].equals("they")
-		   || objects.contains(str[1])
-		   || animals.contains(str[1])
-		   || colors.contains(str[1])
-		   || foods.contains(str[1])
-		   || str[1].equals("the") &&
-		   (objects.contains(str[2])
-		    || animals.contains(str[2])
-		    || colors.contains(str[2])
-		    || foods.contains(str[2])))) ||
-		(str[0].equals("Does") &&
-		 (str[1].equals("she")
-		  || str[1].equals("he")
-		  || str[1].equals("it")
-		  || str[1].equals("the") && objects.contains(str[2]))))
+	    if (( objects.contains(str[1])
+		  || animals.contains(str[1])
+		  || colors.contains(str[1])
+		  || foods.contains(str[1])
+		  || str[1].equals("the") &&
+		  (objects.contains(str[2])
+		   || animals.contains(str[2])
+		   || colors.contains(str[2])
+		   || foods.contains(str[2]))) ||
+		(str[1].equals("the") && objects.contains(str[2])))
 		return true;
 	    return false;
 	}
->>>>>>> d2f2c4215f03ed3c20380664a1f9f1156050d0d6
 	return false;
     }
+
+    public static String irrVerbResponse(String s, String type){
+	String s1, s2, s3, s4;
+	if(type.equals("do")) {
+	    s1 = "do";
+	    s2 = "does";
+	}
+	else {
+	    s1 = "are";
+	    s2 = "is";
+	}
+	String[] L = s.split(" ");
+	L[L.length - 1] = strip(L[L.length - 1]);
+	if(L[1].equals("I")) return "You " + s1 + ".";
+	else if (L[1].equals("you")) return "I " + s1 + ".";
+	else if (L[1].equals("we")) return "We " + s1 + ".";
+	else if (L[1].equals("he")) return "He " + s2 + ".";
+	else if (L[1].equals("she")) return "She " + s2 + ".";
+	else if (L[1].equals("it") ||
+		 L[1].equals("the") &&
+		 (objects.contains(L[2]) ||
+		  animals.contains(L[2]) ||
+		  colors.contains(L[2]) ||
+		  foods.contains(L[2])))
+	    return "It " + s2 + ".";
+	else return "They " + s1 + ".";
+    }
+    
     //Greeting
     public boolean isGreet( Sentence s ) {
 	Greeting greet = new Greeting();
@@ -349,7 +349,7 @@ public class Kumar {
     public Sentence randAnswer(Sentence s) {
 	int rand = (int)(Math.random() * 2);
 	if(rand == 0) s = new Declarative();
-        else s = new Question();
+	else s = new Question();
 	s.generate("");
 	return s;
     }
@@ -380,7 +380,7 @@ public class Kumar {
 
     public static void main(String[] args) {
 
-        Kumar kumar = new Kumar();
+	Kumar kumar = new Kumar();
 	kumar.speak();
 
     }
