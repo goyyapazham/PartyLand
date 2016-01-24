@@ -43,7 +43,7 @@ public class Who extends Sentence {
 	}
 	modifyNames();
 	for(int i = 0; i < input.size(); i++) {
-	    String x = input.get(i);
+	    String x = properNounIfy(input.get(i));
 	    if(names.contains(x)) {
 		String gend = "he";
 		if(genders.get(names.indexOf(x)).equals("f")) gend = "she";
@@ -59,6 +59,10 @@ public class Who extends Sentence {
 	    return "Who? I'm all alone out here";
 	}
 
+    }
+
+    public String properNounIfy(String s) {
+	return s.substring(0, 1).toUpperCase() + s.substring(1);
     }
     
     public void punctuate() {
