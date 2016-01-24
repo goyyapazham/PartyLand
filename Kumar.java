@@ -325,8 +325,11 @@ public class Kumar {
 		return s;
 	    }
 	}
-	
-	if (!b) return randAnswer(s);
+	if (!b) {
+	    Filler f = new Filler();
+	    f.sentence = f.generate(s.sentence);
+	    return f;
+	}
 	else return d;
     }
     
@@ -398,14 +401,6 @@ public class Kumar {
 		return s;
 	    }
 	}
-	return s;
-    }
-    //if all else fails
-    public Sentence randAnswer(Sentence s) {
-	int rand = (int)(Math.random() * 2);
-	if(rand == 0) s = new Declarative();
-	else s = new Question();
-	s.generate("");
 	return s;
     }
 
