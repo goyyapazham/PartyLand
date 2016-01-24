@@ -169,7 +169,7 @@ public class Kumar {
 	singular2.startConnection();
 	singular2.singular();
 	str[2] = singular2.toString();
-	if ((str[0].equals("Do") &&
+	if (( (str[0].equals("Do") || str[0].equals("do") ) &&
 	     (str[1].equals("I")
 	      || str[1].equals("you")
 	      || str[1].equals("we")
