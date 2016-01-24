@@ -3,6 +3,7 @@ public class FunFact extends Sentence {
     protected int type;
     
     public String generate(String s) {
+	//randomize type
 	type = (int)(Math.random() * 2);
 	//fun facts /must/ be about third-person nouns, must be plural
 	NounPhrase n = new NounPhrase(3, true);
@@ -15,6 +16,7 @@ public class FunFact extends Sentence {
 	else {
 	    sentence = "here's a fun fact: ";
 	}
+	//generate random percentage for Fun Fact;
 	int pct = (int)(Math.random() * 101);
 	sentence += pct + "% of " + n + " " + v;
 	punctuate();
