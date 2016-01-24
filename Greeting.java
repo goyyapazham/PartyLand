@@ -1,10 +1,10 @@
 public class Greeting extends Sentence {
     
-    String[] greet1 = new String[]{"hi","hello","greetings","good day","hey"};
+    String[] greet1 = new String[]{"hi","hello","greetings","hey"};
     String[] greet2 = new String[]{"how's it going","how are you","how about you", "what's up","what's going on"};
-    String[] answer = new String[]{"I'm fine","I feel sad","it's been a long day","I have the energy of a dinosaur"};
+    String[] answer = new String[]{"i'm fine","i feel sad","it's been a long day","i have the energy of a dinosaur"};
     //if you have a question at end of greeting or not
-    boolean greetLong = false;
+    boolean quest = false;
     private String punctuation = ".,;:!?";
 
     public String strip(String s) {
@@ -42,7 +42,7 @@ public class Greeting extends Sentence {
 		    sentence = greet1[ (int) (Math.random() * greet1.length) ];
 		    //add greeting question from greet2
 		    if (Math.random() > .5) {
-			greetLong = true;
+			quest = true;
 			sentence += ", " + greet2[ (int) (Math.random() * greet2.length) ];
 		    }
 		    punctuate();
@@ -55,13 +55,21 @@ public class Greeting extends Sentence {
 		capitalize();
 	    }
 	}
+	for ( int i = 0; i < answer.length; i++ ) {
+	    if ( search( answer[i], s ) ) {
+		sentence = "that's cool. Or is it";
+		quest = true;
+		punctuate();
+		capitalize();
+	    }
+	}
 	return sentence;
     }
 
     public void punctuate( ) {
-	if (greetLong) sentence += "?";
+	if (quest) sentence += "?";
 	else sentence += ".";
-	greetLong = false;		      
+	quest = false;
     }
 
 }

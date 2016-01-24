@@ -43,7 +43,7 @@ public class Kumar {
 	}
 	return retStr;
     }
-    
+
     public static boolean search( String searching, String input ) {
 	input = input.toLowerCase();
 	input = removeSpace(input);
@@ -53,10 +53,20 @@ public class Kumar {
 	    if ( inputArray.length == 1 && inputArray[i].equals("") )
 		return false;
 	    if (isPunc(inputArray[i].substring(inputArray[i].length() - 1))) {
-		inputArray[i]
-		    = inputArray[i].substring( 0, inputArray[i].length() - 1 );
+		inputArray[i] = inputArray[i].substring( 0, inputArray[i].length() - 1 );
 	    }
 	    if ( searching.equals( inputArray[i] ) ) return true;
+	}
+	return false;
+    }
+    public boolean searchPhrase( String searching, String input ) {
+	int length = searching.length();
+	input = input.toLowerCase();
+	if ( searching.equals(input) ) return true;
+	for ( int i = 0; i < input.length() - length + 1; i++) {
+	    if ( ( input.substring( i, i + length) ).equals(searching) ) {
+		return true;
+	    }
 	}
 	return false;
     }
@@ -251,7 +261,12 @@ public class Kumar {
 	    }
 	}
 	for ( String x : greet.greet2 ) {
-	    if ( search ( x, s.sentence ) ) {
+	    if ( searchPhrase ( x, s.sentence ) ) {
+		return true;
+	    }
+	}
+	for ( String x : greet.answer ) {
+	    if ( searchPhrase ( x, s.sentence ) ) {
 		return true;
 	    }
 	}
@@ -297,6 +312,61 @@ public class Kumar {
 	    singular.startConnection();
 	    singular.singular();
 	    str[i] = singular.toString();
+	    if (singular.getUnknown()) {
+		count++;
+	    }
+	    if(objects.contains(str[i])) {
+		d.generate(str[i]);
+		b = true;
+		break;
+	    }
+	    if( count == str.length ) {
+		s.sentence = "Do you even English?";
+		return s;
+	    }
+	}
+	
+	if (!b) return randAnswer(s);
+	else return d;
+    }
+    
+    public boolean isSpecific( Sentence s ) {
+	String[] str = s.sentence.split(" ");
+	str[str.length - 1] = strip(str[str.length - 1]);
+	//singular version of all objects in input
+	for(int i = 0; i < str.length; i++) {
+	    if ( isPunc( str[i].substring( str[i].length() - 1 ) ) ) {
+		str[i] = str[i].substring( 0, str[i].length() - 1 );
+	    }
+	    HTMLParser singular = new HTMLParser( str[i] );
+	    singular.startConnection();
+	    singular.singular();
+	    str[i] = singular.toString();
+	    if ( str[i].equals("color") ||
+		 str[i].equals("animal") ||
+		 str[i].equals("food") ||
+		 colors.contains(str[i]) ||
+		 foods.contains(str[i]) ||
+		 animals.contains(str[i]) ) {
+		return true;
+	    }
+	}
+	return false;
+    }
+    public Sentence specific( Sentence s ) {
+	Declarative d = new Declarative();
+	Boolean b = false;
+	String[] str = s.sentence.split(" ");
+	str[str.length - 1] = strip(str[str.length - 1]);
+	//singular version of all objects in input
+	for(int i = 0; i < str.length; i++) {
+	    if ( isPunc( str[i].substring( str[i].length() - 1 ) ) ) {
+		str[i] = str[i].substring( 0, str[i].length() - 1 );
+	    }
+	    HTMLParser singular = new HTMLParser( str[i] );
+	    singular.startConnection();
+	    singular.singular();
+	    str[i] = singular.toString();
 	    if ( str[i].equals("color") ||
 		 str[i].equals("animal") ||
 		 str[i].equals("food") ) {
@@ -327,24 +397,9 @@ public class Kumar {
 		s.sentence += " " + animal2 + ".";
 		return s;
 	    }
-	    if (singular.getUnknown()) {
-		count++;
-	    }
-	    if(objects.contains(str[i])) {
-		d.generate(str[i]);
-		b = true;
-		break;
-	    }
-	    if( count == str.length ) {
-		s.sentence = "Do you even English?";
-		return s;
-	    }
 	}
-	
-	if (!b) return randAnswer(s);
-	else return d;
+	return s;
     }
-    
     //if all else fails
     public Sentence randAnswer(Sentence s) {
 	int rand = (int)(Math.random() * 2);
@@ -364,6 +419,7 @@ public class Kumar {
 	    s = Keyboard.readString();
 	    input = new Input(s);
 	    if ( isGreet(input) ) response = greet(input);
+	    else if( isSpecific(input) ) response = specific(input);
 	    else if(isQuestion(input.sentence)) response = basicQAnswer(input);
 	    else if ( isFarewell(input) ) {
 		response = farewell(input);
