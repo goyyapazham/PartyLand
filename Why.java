@@ -53,8 +53,10 @@ public class Why extends Sentence {
 		break;
 	    }
 	}
-	retDec.sentence = strip( retDec.toString().toLowerCase() );
-	if (b) return "Because " + retDec;
+	if (b) {
+	    retDec.sentence = strip( retDec.toString().toLowerCase() );
+	    return "Because " + retDec;
+	}
 	else return "Because I said so";
     }
     
