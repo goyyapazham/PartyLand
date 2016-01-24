@@ -47,13 +47,12 @@ public class Where extends Sentence {
 	String[] y = z.split(" ");
 	ArrayList<String> input = new ArrayList<String>();
 	for(int i = 0; i < y.length; i++) {
-	    y[i] = y[i].toLowerCase();
 	    input.add(y[i]);
 	}
 	modifyLocations();
 	String retStr;
 	for(int i = 0; i < input.size(); i++) {
-	    String x = input.get(i);
+	    String x = properNounIfy(input.get(i));
 	    if(cities.contains(x)) {
 	        retStr = "Isn't that in ";
 		String country = countries.get(cities.indexOf(x));
@@ -72,6 +71,10 @@ public class Where extends Sentence {
 	    retStr += "Google Maps";
 	}
 	return retStr;
+    }
+
+    public String properNounIfy(String s) {
+	return s.substring(0, 1).toUpperCase() + s.substring(1);
     }
     
     public void punctuate() {

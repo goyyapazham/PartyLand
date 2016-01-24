@@ -39,7 +39,6 @@ public class Who extends Sentence {
 	String[] y = z.split(" ");
 	ArrayList<String> input = new ArrayList<String>();
 	for(int i = 0; i < y.length; i++) {
-	    y[i] = y[i].toLowerCase();
 	    input.add(y[i]);
 	}
 	modifyNames();
