@@ -53,10 +53,13 @@ public class Why extends Sentence {
 		break;
 	    }
 	}
+	int rand = (int)(Math.random() * 10);
 	if (b) {
 	    retDec.sentence = strip( retDec.toString().toLowerCase() );
 	    return "Because " + retDec;
 	}
+	else if(rand == 0) return "Because pigs can fly";
+	else if(rand < 3) return "Because the sky is blue";
 	else return "Because I said so";
     }
     
