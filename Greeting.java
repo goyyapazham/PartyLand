@@ -1,8 +1,8 @@
 public class Greeting extends Sentence {
     
     String[] greet1 = new String[]{"hi","hello","greetings","good day","hey"};
-    String[] greet2 = new String[]{"how's it going","how are you", "what's up","what's going on"};
-    String[] answer = new String[]{"i'm fine","i feel sad","it's been a long day","i have the energy of a dinosaur"};
+    String[] greet2 = new String[]{"how's it going","how are you","how about you", "what's up","what's going on"};
+    String[] answer = new String[]{"I'm fine","I feel sad","it's been a long day","I have the energy of a dinosaur"};
     //if you have a question at end of greeting or not
     boolean greetLong = false;
     private String punctuation = ".,;:!?";
