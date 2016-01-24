@@ -1,0 +1,38 @@
+Johannesburg, South Africa
+Mumbai, India
+Jakarta, Indonesia
+Rio De Janeiro, Brazil
+New Delhi, India
+Bogota, Colombia
+Kuala Lumpur, Malaysia
+Boston, USA, Massachusetts
+Dubai, UAE
+Milan, Italy
+Miami, USA, Florida
+Cairo, Egypt
+Buenos Aires, Argentina
+Munich, Germany
+Istanbul, Turkey
+Sao Paolo, Brazil
+Taipei, Taiwan
+Moscow, Russia
+Mexico City, Mexico
+Zurich, Switzerland
+Shanghai, China
+Bangkok, Thailand
+San Francisco, USA, California
+Sydney, Australia
+Frankfurt, Germany
+Hong Kong, China
+Seoul, South Korea
+New York, USA, New York
+Chicago, USA, Illinois
+Toronto, Canada
+Beijing, China
+Berlin, Germany
+Brussels, Belgium
+Los Angeles, USA, California
+Tokyo, Japan
+Paris, France
+London, UK
+Chennai, India
