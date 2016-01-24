@@ -62,9 +62,9 @@ public class What extends Sentence {
 	for(int i = 0; i < y.length; i++) {
 	    input.add(y[i]);
 	}
+	modifyKumar();
 	for(int i = 0; i < input.size(); i++) {
 	    String x = input.get(i);
-	    modifyKumar();
 	    if (animals.contains(x)
 		|| input.get(i).indexOf("animal") > -1
 		|| input.get(i).indexOf("animals") > -1) {
@@ -77,7 +77,7 @@ public class What extends Sentence {
 		|| input.get(i).indexOf("color") > -1
 		|| input.get(i).indexOf("colors") > -1) {
 		return "My favorite color is " +
-		    colors.get(categories.indexOf("color"));
+		    bio.get(categories.indexOf("color"));
 	    }
 	    if (foods.contains(x)
 		|| input.get(i).indexOf("food") > -1
