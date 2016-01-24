@@ -94,9 +94,11 @@ public class HTMLParser {
     }
     
     public static void main( String[] args ) {
-	HTMLParser pardeep = new HTMLParser("housse");
-	pardeep.startConnection();
-	pardeep.plural();
-	System.out.println(pardeep);
+	/*
+	  (HTMLParser pardeep = new HTMLParser("colors");
+	  pardeep.startConnection();
+	  pardeep.singular();
+	  System.out.println(pardeep);
+	*/    
     }
 }

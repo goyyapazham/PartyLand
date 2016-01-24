@@ -191,6 +191,12 @@ public class Kumar {
 	    singular.startConnection();
 	    singular.singular();
 	    str[i] = singular.toString();
+	    if ( str[i].equals("color") ||
+		 str[i].equals("animal") ||
+		 str[i].equals("food") ) {
+		What answer = new What(s);
+		return answer;
+	    }
 	    if (str[i].equals("Do you even English?")) {
 		s.sentence = "Do you even English?";
 		return s;
