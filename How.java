@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class How extends Sentence {
 
     private static String punctuation = ".,;:!?";
@@ -27,7 +29,7 @@ public class How extends Sentence {
 	for ( int i = 0; i < input.size(); i++ ) {
 	    String check = input.get(i);
 	    if ( ( check.toLowerCase() ).equals("many") ) {
-		retStr = "I'm pretty sure it is" + (int) (Math.random() * 100);
+		retStr = "I'm pretty sure it is " + (int) (Math.random() * 100);
 		return retStr;
 	    }
 	}

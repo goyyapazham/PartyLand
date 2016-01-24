@@ -148,7 +148,7 @@ public class Kumar {
     
     public Sentence greet( Sentence s ) {	
 	Greeting greet = new Greeting();
-	greet.generate("");
+	greet.generate(s.sentence);
 	return greet;
     }
 
