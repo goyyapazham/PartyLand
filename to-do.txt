@@ -84,12 +84,28 @@ Reader:
 ~~~~ EXTRAS ~~~~
 - CSV parser uses ArrayLists (slightly easier to work)
 - HTMLParser looks for singular versions of plural nouns
------- TO BE COMPLETED ------
+
+------ COMPLETED 1/21 - 1/22 ------
+
+~~~~ DEBUGGING ~~~~
+- VerbPhrase: conjugation with irregular verbs
+- Kumar: strips punctuation to recognize more input
 
 ~~~~ CLASS STRUCTURE ~~~~
-NounPhrase:
-- types of nouns e.g. pronouns, colors, people, food, ..... (i.e. improve variety)
+- new noun structure initialized
+
+------ COMPLETED 1/23 ------
+
+~~~~ CLASS STRUCTURE ~~~~
+- Question response structure initialized
+- Who, What, Where classes initialized
+- noun structure expanded
+
+~~~~ DEBUGGING ~~~~
+- isGreet() no longer sees words with greetings in them (e.g. "this" has the word "hi") as greetings
+- certain file names that were changed have now been accommodated throughout our file structure
+
+------ TO BE COMPLETED ------
 
 ~~~~ RESPONSE MECHANISM ~~~~
-- if/else structure (est. 4-5 days?)
---- separate inputs by type of sentence
+- expand respondRelated method in Kumar to address keywords that are currently only addressed if something is recognized as a question
