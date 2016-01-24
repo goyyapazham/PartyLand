@@ -12,16 +12,16 @@ import java.util.ArrayList;
 public class ParseCSV {
 
     //inst vars
-    protected ArrayList<String> lines = new ArrayList<String>();
+    protected ArrayList<String> words = new ArrayList<String>();
 
     //constructor
     public ParseCSV(String filename) {
-	lines = readFile(filename);
+	words = readFile(filename);
     }
 
     //toString()
     public String toString() {
-	return lines.toString();
+	return words.toString();
     }
 
     public ArrayList<String> readFile(String fileName) {
@@ -31,14 +31,14 @@ public class ParseCSV {
 		new BufferedReader(new FileReader(fileName));
 	    //as long as you can read out the next line from the file
 	    for(String str; (str = file.readLine()) != null; ) {
-		//add the next line to the array of lines
-		lines.add(str); //(can be split by whitespace if necessary)
+		//add the next line to the array of words
+		words.add(str); //(can be split by whitespace if necessary)
 	    }
 	} catch(IOException e) {
 	    System.out.println("oops");
 	    System.out.println(fileName);
 	}
-	return lines;
+	return words;
     }
 
     //~~~ test case for debugging purposes ~~~
