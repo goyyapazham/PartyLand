@@ -15,7 +15,10 @@ public class What extends Sentence {
 	sentence = generate( input.toString() );
 	punctuate();
     }
-
+    public What( String input ) {
+	sentence = generate( input );
+	punctuate();
+    }
     public static String strip(String s) {
 	String retStr = "";
 	for(int i = 0; i < s.length(); i++) {
