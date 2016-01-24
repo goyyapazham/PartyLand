@@ -16,10 +16,6 @@ public class Where extends Sentence {
 	punctuate();
     }
 
-    public String generate(String s) {
-	return "Have you tried Google Maps";
-    }
-
     public static String strip(String s) {
 	String retStr = "";
 	for(int i = 0; i < s.length(); i++) {
@@ -60,8 +56,8 @@ public class Where extends Sentence {
 	    String x = input.get(i);
 	    if(cities.contains(x)) {
 	        retStr = "Isn't that in ";
-		country = countries.get(cities.indexOf(x));
-		state = states.get(cities.indexOf(x));
+		String country = countries.get(cities.indexOf(x));
+		String state = states.get(cities.indexOf(x));
 		if(!(state).equals(""))
 		    return retStr + state;
 		else
@@ -75,6 +71,7 @@ public class Where extends Sentence {
 	else {
 	    retStr += "Google Maps";
 	}
+	return retStr;
     }
     
     public void punctuate() {
