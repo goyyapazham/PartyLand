@@ -25,3 +25,10 @@ Team PartyLand: Nalanda Sharadjaya and Pardeep Singh
 1/20/16 (In-Class): Updated CSV Parser to work with ArrayLists as opposed to String arrays
 1/20/16 (Nala): Generates semi-related responses if it can, by searching for individual words from an input in a larger list of nouns
 1/20/16 (Pardeep): HTMLParser finds singular version of plural nouns(input might contain plural versions) Kumar understands plural nouns and rejects all inputs containing gibberish
+
+1/21/16 (In-Class): Developed method to strip punctuation from individual inputted words, so Kumar can recognize more stuff.
+
+1/22/16 (In-Class): Pushed work from day before. Debugging with verb conjugation. Initialized varied noun structure.
+
+1/23/16 (Nala): Completed noun structure. Question response structure updated to reflect new noun structure (three types of questions: Who, What, Where)--Who responds to names, What responds to animals, colors and food, Where responds to locations
+1/23/16 (Pardeep): Debugging with isGreet() in Kumar, filename changes. Set up foundation for Question structure (Who/What/Where/When/Why/How) and misspelled word suggestion (unsure if this feature will be finished in time)
