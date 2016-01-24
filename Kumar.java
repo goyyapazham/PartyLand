@@ -26,7 +26,7 @@ public class Kumar {
     
     //speaking info
     public void begin() {
-	System.out.println("Hello! Welcome. My name is Kumar.");
+	System.out.println("\nHello! Welcome. My name is Kumar.");
 	help();
 	System.out.println("Begin...");
 	System.out.println();
@@ -34,9 +34,12 @@ public class Kumar {
 
     public void help() {
 	System.out.println("\nFor starters, try: ");
-	System.out.println("\tHow are you?");
-	System.out.println("\tWhat is 4/3?");
-	System.out.println("\tWhat is the meaning of life?\n");
+	System.out.println("  *  How are you?");
+	System.out.println("  *  What is your favorite color?");
+	System.out.println("  *  What is the meaning of life?\n");
+	System.out.println("And don't forget your help commands: ");
+	System.out.println("  *  help -- get this information again, at any time during our conversation");
+	System.out.println("  *  exit -- if you want to leave without saying goodbye, you can... :'(\n");
     }
 
     //for response mechanism
