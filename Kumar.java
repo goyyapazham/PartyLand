@@ -234,6 +234,8 @@ public class Kumar {
     public Sentence respondRelated(Sentence s) {
 	Declarative d = new Declarative();
 	Boolean b = false;
+	//counts number of words not found on
+	int count = 0;
 	String[] str = s.sentence.split(" ");
 	str[str.length - 1] = strip(str[str.length - 1]);
 	//singular version of all objects in input
@@ -276,13 +278,16 @@ public class Kumar {
 		return s;
 	    }
 	    if (str[i].equals("Do you even English?")) {
-		s.sentence = "Do you even English?";
-		return s;
+		count++;
 	    }
 	    if(objects.contains(str[i])) {
 		d.generate(str[i]);
 		b = true;
 		break;
+	    }
+	    if( count == str.length ) {
+		s.sentence = "Do you even English";
+		return s;
 	    }
 	}
 	
