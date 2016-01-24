@@ -197,6 +197,30 @@ public class Kumar {
 		What answer = new What(s);
 		return answer;
 	    }
+	    if (colors.contains(str[i])) {
+		s.sentence = str[i].substring(0, 1).toUpperCase()
+		    + str[i].substring(1) + " looks lovely on you.";
+		return s;
+	    }
+	    if (foods.contains(str[i])) {
+		s.sentence = str[i].substring(0, 1).toUpperCase()
+		    + str[i].substring(1) + " is nice, but I prefer "
+		    + foods.get((int)(Math.random() * foods.size())) + ".";
+		return s;
+	    }
+	    if (animals.contains(str[i])) {
+		String animal1 = str[i];
+		String animal2 =
+		    animals.get((int)(Math.random() * animals.size()));
+		s.sentence = "Once upon a time, a";
+		if ("aeiouAEIOU".indexOf(animal1.substring(0, 1)) > -1)
+		    s.sentence += "n";
+		s.sentence += " " + str[i] + " befriended a";
+		if ("aeiouAEIOU".indexOf(animal2.substring(0, 1)) > -1)
+		    s.sentence += "n";
+		s.sentence += " " + animal2 + ".";
+		return s;
+	    }
 	    if (str[i].equals("Do you even English?")) {
 		s.sentence = "Do you even English?";
 		return s;
