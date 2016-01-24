@@ -31,4 +31,4 @@ Team PartyLand: Nalanda Sharadjaya and Pardeep Singh
 1/22/16 (In-Class): Pushed work from day before. Debugging with verb conjugation. Initialized varied noun structure.
 
 1/23/16 (Nala): Completed noun structure. Question response structure updated to reflect new noun structure (three types of questions: Who, What, Where)--Who responds to names, What responds to animals, colors and food, Where responds to locations
-1/23/16 (Pardeep): Debugging with isGreet() in Kumar, filename changes. Set up foundation for Question structure (Who/What/Where/When/Why/How) and misspelled word suggestion (unsure if this feature will be finished in time)
+1/23/16 (Pardeep): Debugging with isGreet() in Kumar, filename changes. Set up foundation for Question structure (Who/What/Where/When/Why/How) and misspelled word suggestion (unsure if this feature will be finished in time) worked on How,When,Why classes. general debugging throughout the files. 
