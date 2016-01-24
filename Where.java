@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Where extends Sentence {
 
     ParseCSV l = new ParseCSV("locations.txt");
-    ArrayList locationstxt = l.words;
+    ArrayList locationstxt = l.lines;
     ArrayList<String> cities = new ArrayList<String>();
     ArrayList<String> countries = new ArrayList<String>();
     ArrayList<String> states = new ArrayList<String>();

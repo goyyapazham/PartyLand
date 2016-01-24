@@ -10,10 +10,10 @@ public class Kumar {
     private static ParseCSV g = new ParseCSV("foods.txt");
     private static ParseCSV h = new ParseCSV("colors.txt");
     private static ParseCSV j = new ParseCSV("animals.txt");
-    private static ArrayList<String> objects = f.words;
-    private static ArrayList<String> foods = g.words;
-    private static ArrayList<String> colors = h.words;
-    private static ArrayList<String> animals = j.words;
+    private static ArrayList<String> objects = f.lines;
+    private static ArrayList<String> foods = g.lines;
+    private static ArrayList<String> colors = h.lines;
+    private static ArrayList<String> animals = j.lines;
     
     //speaking info
     public void begin() {

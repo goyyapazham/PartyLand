@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Who extends Sentence {
 
     ParseCSV n = new ParseCSV("names.txt");
-    ArrayList namestxt = n.words;
+    ArrayList namestxt = n.lines;
     ArrayList<String> names = new ArrayList<String>();
     ArrayList<String> genders = new ArrayList<String>();
 

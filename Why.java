@@ -4,7 +4,7 @@ public class Why extends Sentence {
 
     private static String punctuation = ".,;:!?";
     ParseCSV f = new ParseCSV("objects.txt");
-    private ArrayList<String> objects = f.words;
+    private ArrayList<String> objects = f.lines;
     public Why( Sentence input ) {
 	sentence = generate( input.toString() );
 	punctuate();

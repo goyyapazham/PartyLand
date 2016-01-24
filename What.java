@@ -3,14 +3,14 @@ import java.util.ArrayList;
 public class What extends Sentence {
 
     ParseCSV a = new ParseCSV("animals.txt");
-    ArrayList<String> animals = a.words;
+    ArrayList<String> animals = a.lines;
     ParseCSV c = new ParseCSV("colors.txt");
-    ArrayList<String> colors = c.words;
+    ArrayList<String> colors = c.lines;
     ParseCSV f = new ParseCSV("foods.txt");
-    ArrayList<String> foods = f.words;
+    ArrayList<String> foods = f.lines;
     
     ParseCSV k = new ParseCSV("kumar.txt");
-    ArrayList kumar = k.words;
+    ArrayList kumar = k.lines;
     ArrayList<String> categories = new ArrayList<String>();
     ArrayList<String> bio = new ArrayList<String>();
     

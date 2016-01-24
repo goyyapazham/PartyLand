@@ -5,9 +5,9 @@ public class Filler extends Sentence {
 
     public String[] parseCSV(String filename) {
  	ParseCSV f = new ParseCSV(filename);
- 	String[] retArr = new String[f.words.size()];
- 	for(int i = 0; i < f.words.size(); i++) {
- 	    retArr[i] = f.words.get(i);
+ 	String[] retArr = new String[f.lines.size()];
+ 	for(int i = 0; i < f.lines.size(); i++) {
+ 	    retArr[i] = f.lines.get(i);
 	}
 	return retArr;
     }
