@@ -160,38 +160,42 @@ public class Kumar {
     public static boolean toBeStructure(String s) {
 	String[] str = s.split(" ");
 	str[str.length - 1] = strip(str[str.length - 1]);
-	HTMLParser singular1 = new HTMLParser( str[1] );
-	singular1.startConnection();
-	singular1.singular();
-	if(!str[1].equals("I"))
-	    str[1] = singular1.toString();
-	HTMLParser singular2 = new HTMLParser( str[2] );
-	singular2.startConnection();
-	singular2.singular();
-	str[2] = singular2.toString();
-	if (( (str[0].equals("Do") || str[0].equals("do") ) &&
-	     (str[1].equals("I")
-	      || str[1].equals("you")
-	      || str[1].equals("we")
-	      || str[1].equals("they")
-	      || objects.contains(str[1])
-	      || animals.contains(str[1])
-	      || colors.contains(str[1])
-	      || foods.contains(str[1])
-	      || str[1].equals("the") &&
-	      (objects.contains(str[2])
-	       || animals.contains(str[2])
-	       || colors.contains(str[2])
-	       || foods.contains(str[2])))) ||
-	    (str[0].equals("Does") &&
-	     (str[1].equals("she")
-	      || str[1].equals("he")
-	      || str[1].equals("it")
-	      || str[1].equals("the") && objects.contains(str[2]))))
-	    return true;
+	if (str.length > 1) {
+	    HTMLParser singular1 = new HTMLParser( str[1] );
+	    singular1.startConnection();
+	    singular1.singular();
+	    if(!str[1].equals("I"))
+		str[1] = singular1.toString();
+	}
+	if (str.length > 2) {
+	    HTMLParser singular2 = new HTMLParser( str[2] );
+	    singular2.startConnection();
+	    singular2.singular();
+	    str[2] = singular2.toString();
+	    if (( (str[0].equals("Do") || str[0].equals("do") ) &&
+		  (str[1].equals("I")
+		   || str[1].equals("you")
+		   || str[1].equals("we")
+		   || str[1].equals("they")
+		   || objects.contains(str[1])
+		   || animals.contains(str[1])
+		   || colors.contains(str[1])
+		   || foods.contains(str[1])
+		   || str[1].equals("the") &&
+		   (objects.contains(str[2])
+		    || animals.contains(str[2])
+		    || colors.contains(str[2])
+		    || foods.contains(str[2])))) ||
+		(str[0].equals("Does") &&
+		 (str[1].equals("she")
+		  || str[1].equals("he")
+		  || str[1].equals("it")
+		  || str[1].equals("the") && objects.contains(str[2]))))
+		return true;
+	    return false;
+	}
 	return false;
     }
-    
     //Greeting
     public boolean isGreet( Sentence s ) {
 	Greeting greet = new Greeting();
@@ -277,7 +281,7 @@ public class Kumar {
 		s.sentence += " " + animal2 + ".";
 		return s;
 	    }
-	    if (str[i].equals("Do you even English?")) {
+	    if (singular.getUnknown()) {
 		count++;
 	    }
 	    if(objects.contains(str[i])) {
@@ -286,7 +290,7 @@ public class Kumar {
 		break;
 	    }
 	    if( count == str.length ) {
-		s.sentence = "Do you even English";
+		s.sentence = "Do you even English?";
 		return s;
 	    }
 	}
