@@ -9,6 +9,11 @@ public class What extends Sentence {
     ParseCSV f = new ParseCSV("foods.txt");
     ArrayList<String> foods = f.words;
     
+    ParseCSV k = new ParseCSV("kumar.txt");
+    ArrayList kumar = k.words;
+    ArrayList<String> categories = new ArrayList<String>();
+    ArrayList<String> bio = new ArrayList<String>();
+    
     private static String punctuation = ".,;:!?";
 
     public What( Sentence input ) {
@@ -40,6 +45,16 @@ public class What extends Sentence {
         return resp.phrase + " the " + newAnimal;
     }
 
+    public void modifyKumar() {
+	for(int i = 0; i < kumar.size(); i++) {
+	    kumar.set(i, ((String)kumar.get(i)).split(", "));
+	}
+	for(int i = 0; i < kumar.size(); i++) {
+	    categories.add(((String[])kumar.get(i))[0]);
+	    bio.add(((String[])kumar.get(i))[1]);
+	}
+    }
+
     public String generate(String s) {
 	String z = strip(s);
 	String[] y = z.split(" ");
@@ -49,6 +64,7 @@ public class What extends Sentence {
 	}
 	for(int i = 0; i < input.size(); i++) {
 	    String x = input.get(i);
+	    modifyKumar();
 	    if (animals.contains(x)
 		|| input.get(i).indexOf("animal") > -1
 		|| input.get(i).indexOf("animals") > -1) {
@@ -61,13 +77,13 @@ public class What extends Sentence {
 		|| input.get(i).indexOf("color") > -1
 		|| input.get(i).indexOf("colors") > -1) {
 		return "My favorite color is " +
-		    colors.get((int)(Math.random() * colors.size()));
+		    colors.get(categories.indexOf("color"));
 	    }
 	    if (foods.contains(x)
 		|| input.get(i).indexOf("food") > -1
 		|| input.get(i).indexOf("foods") > -1) {
-		return "I myself am partial to " +
-		    foods.get((int)(Math.random() * foods.size()));
+		return "I myself am partial to "
+		    + bio.get(categories.indexOf("food"));
 	    }
 	}
 	return "I don't know";
