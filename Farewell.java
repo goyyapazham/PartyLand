@@ -1,5 +1,6 @@
 public class Farewell extends Sentence {
-    
+
+    //String array of pre-set Farewells
     String[] farewell = new String[]{"bye", "goodbye","see you later","have a nice day","regards","all the best"};
     
     public String generate(String s) {
