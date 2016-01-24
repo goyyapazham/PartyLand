@@ -8,6 +8,7 @@ public class HTMLParser {
     protected String HTML;
     protected String word;
     protected String URL;
+    protected boolean unknown;
     //pluralize
     protected String keyHTML = "<span class=\"dbox-pg\">noun</span>, <span class=\"dbox-pg\">plural </span>";
     //singular
@@ -19,6 +20,7 @@ public class HTMLParser {
 	HTML = "";
 	word = w;
 	URL = "http://dictionary.reference.com/browse/" + word.toLowerCase() + "?s=t";
+	unknown = false;
     }
 
     public String toString() {
@@ -50,10 +52,14 @@ public class HTMLParser {
 	    System.out.println(URL);
 	    startConnection();
 	    */
-	    word = "Do you even English?";
+	    unknown = true;
 	}
     }
 
+    public boolean getUnknown() {
+	return unknown;
+    }
+    
     public int search( String searching, String input ) {
 	int length = searching.length();
 	input = input.toLowerCase();
