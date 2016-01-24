@@ -98,7 +98,7 @@ Reader:
 
 ~~~~ CLASS STRUCTURE ~~~~
 - Question response structure initialized
-- Who, What, Where classes initialized
+- Who, What, Where, When, Why, How classes initialized
 - noun structure expanded
 
 ~~~~ DEBUGGING ~~~~
