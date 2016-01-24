@@ -1,4 +1,3 @@
-abyssinian
 accelerator
 accordion
 account
@@ -114,18 +113,14 @@ bacon
 badge
 badger
 bag
-bagel
 bagpipe
 bail
 bait
 baker
 bakery
 balance
-balinese
 ball
 balloon
-bamboo
-banana
 band
 bandana
 bangle
@@ -196,7 +191,6 @@ birth
 birthday
 bit
 bite
-black
 bladder
 blade
 blanket
@@ -207,7 +201,6 @@ blood
 blouse
 blow
 blowgun
-blue
 board
 boat
 body
@@ -240,14 +233,11 @@ branch
 brand
 brandy
 brass
-bread
 break
-breakfast
 breath
 brick
 bridge
 british
-broccoli
 brochure
 broker
 bronze
@@ -264,7 +254,6 @@ buffet
 bugle
 building
 bulb
-bull
 bulldozer
 bug
 bumper
@@ -325,9 +314,7 @@ cartoon
 case
 cast
 castanet
-cat
 catamaran
-caterpillar
 cathedral
 catsup
 cattle
@@ -348,7 +335,6 @@ cent
 centimeter
 century
 ceramic
-cereal
 certification
 chain
 chair
@@ -362,13 +348,9 @@ charles
 chauffeur
 check
 cheek
-cheese
-cheetah
 chef
 chemistry
 cheque
-cherries
-cherry
 chess
 chest
 chicory
@@ -487,15 +469,12 @@ course
 court
 cousin
 cover
-cow
 cowbell
 crab
 crack
 cracker
 craftsman
 crate
-crawdad
-crayfish
 crayon
 cream
 creator
@@ -623,16 +602,10 @@ diving
 division
 dock
 doctor
-dog
-dogsled
 doll
 dollar
-dolphin
 domain
-donkey
-donna
 door
-dorothy
 double
 doubt
 downtown
@@ -686,10 +659,7 @@ egypt
 eight
 elbow
 element
-elephant
-elizabeth
 ellipse
-emery
 employee
 employer
 encyclopedia
@@ -780,8 +750,6 @@ fire
 fireman
 fireplace
 firewall
-fish
-fisherman
 flag
 flame
 flare
@@ -826,7 +794,6 @@ freckle
 freeze
 freezer
 freighter
-french
 freon
 friction
 friday
@@ -866,7 +833,6 @@ german
 ghana
 ghost
 giant
-giraffe
 girdle
 girl
 gladiolus
@@ -901,15 +867,12 @@ grape
 graphic
 grass
 grasshopper
-gray
 grease
 great-grandfather
 great-grandmother
 greece
 greek
-green
 grenade
-grey
 grill
 grip
 ground
@@ -934,9 +897,7 @@ half-sister
 halibut
 hall
 hallway
-hamburger
 hammer
-hamster
 hand
 handball
 handicap
@@ -990,7 +951,6 @@ hood
 hook
 hope
 horn
-horse
 hose
 hospital
 hot
@@ -1167,7 +1127,6 @@ linda
 line
 linen
 link
-lion
 lip
 lipstick
 liquid
@@ -1303,7 +1262,6 @@ motion
 motorboat
 motorcycle
 mountain
-mouse
 moustache
 mouth
 move
@@ -1314,7 +1272,6 @@ museum
 music
 musician
 mustard
-myanmar
 nail
 name
 nancy
@@ -1384,7 +1341,6 @@ operation
 ophthalmologist
 opinion
 option
-orange
 orchestra
 orchid
 order
@@ -1417,7 +1373,6 @@ pakistan
 palm
 pamphlet
 pan
-pancake
 pancreas
 panda
 pansy
@@ -1445,7 +1400,6 @@ party
 passbook
 passenger
 passive
-pasta
 paste
 pastor
 pastry
@@ -1495,8 +1449,6 @@ piccolo
 pickle
 picture
 pie
-pig
-pigeon
 pike
 pillow
 pilot
@@ -1504,11 +1456,9 @@ pimple
 pin
 pine
 ping
-pink
 pint
 pipe
 pisces
-pizza
 place
 plain
 plane
@@ -1562,7 +1512,6 @@ power
 precipitation
 preface
 pressure
-price
 priest
 print
 printer
@@ -1578,7 +1527,6 @@ profit
 promotion
 propane
 property
-prose
 prosecution
 protest
 protocol
@@ -1595,7 +1543,6 @@ punch
 punishment
 puppy
 purchase
-purple
 purpose
 push
 pvc
@@ -1617,7 +1564,6 @@ quit
 quiver
 quotation
 rabbi
-rabbit
 racing
 radar
 radiator
@@ -1633,9 +1579,7 @@ rainstorm
 rake
 ramie
 random
-range
-rat
-rate
+rangerate
 raven
 ravioli
 ray
@@ -1648,7 +1592,6 @@ recess
 record
 recorder
 rectangle
-red
 reduction
 refrigerator
 refund
@@ -1701,7 +1644,6 @@ roof
 room
 rooster
 root
-rose
 rotate
 route
 router
@@ -1720,7 +1662,6 @@ sagittarius
 sail
 sailboat
 sailor
-salad
 salary
 sale
 salesman
@@ -1761,8 +1702,6 @@ screen
 screw
 screwdriver
 sea
-seagull
-seal
 seaplane
 search
 seashore
@@ -1795,10 +1734,7 @@ shame
 shampoo
 shape
 share
-shark
-sharon
 shears
-sheep
 sheet
 shelf
 shell
@@ -1880,11 +1816,7 @@ song
 soprano
 sort
 sound
-soup
 sousaphone
-south africa
-south america
-south korea
 soy
 soybean
 space
@@ -1912,8 +1844,6 @@ spruce
 spy
 square
 squash
-squid
-squirrel
 stage
 staircase
 stamp
@@ -2068,7 +1998,6 @@ thunderstorm
 thursday
 ticket
 tie
-tiger
 tights
 tile
 timbale
@@ -2081,7 +2010,6 @@ tire
 titanium
 title
 toad
-toast
 toe
 toenail
 toilet
@@ -2159,10 +2087,8 @@ underpants
 undershirt
 underwear
 unit
-united kingdom
 use
 utensil
-uzbekistan
 vacation
 vacuum
 valley
@@ -2175,10 +2101,7 @@ vegetarian
 veil
 vein
 velvet
-venezuela
-venezuelan
 verdict
-vermicelli
 verse
 vessel
 vest
@@ -2188,7 +2111,6 @@ vietnam
 view
 vinyl
 viola
-violet
 violin
 virgo
 viscose
@@ -2225,21 +2147,17 @@ weapon
 weasel
 weather
 wedge
-wednesday
 weed
 weeder
 week
 weight
-whale
 wheel
 whip
 whiskey
 whistle
-white
 wholesaler
 whorl
 wilderness
-william
 willow
 wind
 windchime
@@ -2254,9 +2172,6 @@ wish
 witch
 withdrawal
 witness
-wolf
-woman
-women
 wood
 wool
 woolen
@@ -2278,7 +2193,6 @@ yam
 yard
 yarn
 year
-yellow
 yew
 yogurt
 yoke

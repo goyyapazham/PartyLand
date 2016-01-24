@@ -3,8 +3,11 @@ cat
 cow
 pig
 horse
+donkey
+caterpillar
 whale
 narwhal
+shrimp
 fish
 shark
 seal
@@ -12,6 +15,7 @@ bull
 lion
 cheetah
 penguin
+dolphin
 tiger
 wolf
 bunny
@@ -19,6 +23,8 @@ elephant
 giraffe
 buffalo
 mouse
+pigeon
+squid
 squirrel
 rat
 hamster
