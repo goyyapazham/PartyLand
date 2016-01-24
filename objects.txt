@@ -629,7 +629,6 @@ doll
 dollar
 dolphin
 domain
-donald
 donkey
 donna
 door
@@ -862,10 +861,8 @@ gender
 geography
 geology
 geometry
-george
 geranium
 german
-germany
 ghana
 ghost
 giant
@@ -1057,7 +1054,6 @@ jacket
 jaguar
 jail
 jam
-james
 january
 japan
 japanese
@@ -1070,11 +1066,9 @@ jeep
 jeff
 jelly
 jellyfish
-jennifer
 jet
 jewel
 jogging
-john
 join
 joke
 joseph
