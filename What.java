@@ -84,7 +84,15 @@ public class What extends Sentence {
 		|| input.get(i).indexOf("foods") > -1) {
 		return "I myself am partial to "
 		    + bio.get(categories.indexOf("food"));
+		
 	    }
+	    if( x.equals("name") )
+		return "My name is " + bio.get( categories.indexOf("name") );
+	    if( x.equals("age") )
+		return "My age is " + bio.get( categories.indexOf("age") );
+	    if( x.equals("job") )
+		return "I'm a " + bio.get( categories.indexOf("name") );
+	    
 	}
 	return "I don't know";
     }
