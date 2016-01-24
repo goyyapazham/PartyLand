@@ -6,14 +6,14 @@ public class Kumar {
     private boolean terminate = false;
     private static String punctuation = ".,;:!?";
     
-    ParseCSV f = new ParseCSV("objects.txt");
-    ParseCSV g = new ParseCSV("foods.txt");
-    ParseCSV h = new ParseCSV("colors.txt");
-    ParseCSV j = new ParseCSV("animals.txt");
-    private ArrayList<String> objects = f.words;
-    private ArrayList<String> foods = g.words;
-    private ArrayList<String> colors = h.words;
-    private ArrayList<String> animals = j.words;
+    private static ParseCSV f = new ParseCSV("objects.txt");
+    private static ParseCSV g = new ParseCSV("foods.txt");
+    private static ParseCSV h = new ParseCSV("colors.txt");
+    private static ParseCSV j = new ParseCSV("animals.txt");
+    private static ArrayList<String> objects = f.words;
+    private static ArrayList<String> foods = g.words;
+    private static ArrayList<String> colors = h.words;
+    private static ArrayList<String> animals = j.words;
     
     //speaking info
     public void begin() {
@@ -91,7 +91,8 @@ public class Kumar {
     public static boolean isQuestion(String input) {
 	boolean retBool = false;
 	if(input.substring(input.length() - 1).equals("?") ||
-	   ! questionType(input).equals("unknown")) {
+	   ! questionType(input).equals("unknown") ||
+	   toBeStructure(input)) {
 	    retBool = true;
 	}
 	return retBool;
@@ -113,6 +114,9 @@ public class Kumar {
 	     && search("of", s.sentence)
 	     && search("life", s.sentence) ) {
 	    str = "The meaning of life is 42.";
+	}
+	else if ( toBeStructure(s.sentence) ) {
+	    str = "YOU ARE BEAUTIFUL";
 	}
 	else if ( questionType(s.sentence).equals("what") ) {
 	    Sentence answer = new What(s);
@@ -151,6 +155,34 @@ public class Kumar {
 	s = new Filler();
 	s.sentence = str;
 	return s;
+    }
+
+    public static boolean toBeStructure(String s) {
+	String[] str = s.split(" ");
+	str[str.length - 1] = strip(str[str.length - 1]);
+	HTMLParser singular1 = new HTMLParser( str[1] );
+	singular1.startConnection();
+	singular1.singular();
+	if(!str[1].equals("I"))
+	    str[1] = singular1.toString();
+	HTMLParser singular2 = new HTMLParser( str[2] );
+	singular2.startConnection();
+	singular2.singular();
+	str[2] = singular2.toString();
+	if ((str[0].equals("Do") &&
+	     (str[1].equals("I")
+	      || str[1].equals("you")
+	      || str[1].equals("we")
+	      || str[1].equals("they")
+	      || objects.contains(str[1])
+	      || str[1].equals("the") && objects.contains(str[2]))) ||
+	    (str[0].equals("Does") &&
+	     (str[1].equals("she")
+	      || str[1].equals("he")
+	      || str[1].equals("it")
+	      || str[1].equals("the") && objects.contains(str[2]))))
+	    return true;
+	return false;
     }
     
     //Greeting
