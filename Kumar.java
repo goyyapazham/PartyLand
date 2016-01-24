@@ -106,22 +106,31 @@ public class Kumar {
 	return s;
     }
 
-    //Greeting
+    public static String removeSpace ( String input ) {
+	int x = input.length();
+	for ( int i = 0; i < x; i++ ) {
+	    if ( input.substring(0,1).equals(" ") ) {
+		input = input.substring(1);
+	    }
+	}
+	return input;
+    }
     public static boolean search( String searching, String input ) {
 	input = input.toLowerCase();
+	input = removeSpace(input);
 	String[] inputArray = input.split(" ");
 	if ( searching.equals(input) ) return true;
 	for ( int i = 0; i < inputArray.length; i++) {
+	    if ( inputArray.length == 1 && inputArray[i].equals("") ) return false;
 	    if ( isPunc( inputArray[i].substring( inputArray[i].length() - 1 ) ) ) {
 		inputArray[i] = inputArray[i].substring( 0, inputArray[i].length() - 1 );
 	    }
-	    if ( searching.equals( inputArray[i] ) ) {
-		return true;
-	    }
+	    if ( searching.equals( inputArray[i] ) ) return true;
 	}
 	return false;
     }
     
+    //Greeting
     public boolean isGreet( Sentence s ) {
 	Greeting greet = new Greeting();
 	for ( String x : greet.greet1 ) {
