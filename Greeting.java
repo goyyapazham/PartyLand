@@ -44,14 +44,16 @@ public class Greeting extends Sentence {
 	    for ( int x = 0; x < greet1.length; x++ ) {
 		//if the input contains both types of greetings return a normal greeting
 		//along with an answer for the in depth greeting
+		//must contain both types
 		if ( search(greet1[x],s) && search(greet2[i],s) ) {
 		    sentence = greet1[ (int) (Math.random() * greet1.length) ];
 		    sentence += ", " + answer[ (int) (Math.random() * answer.length) ];
 		    punctuate();
 		    capitalize();
 		}
-		//if it is just a bbasic greeting return a basic greeting along with
+		//if it is just a basic greeting return a basic greeting along with
 		//a more indepth one 50% of the time
+		//must be exactly a string in greet1
 		else if ( greet1[x].equals( s.toLowerCase() ) ) {
 		    //choose a greeting from greet1
 		    sentence = greet1[ (int) (Math.random() * greet1.length) ];
@@ -65,20 +67,45 @@ public class Greeting extends Sentence {
 		    punctuate();
 		    capitalize();
 		}
-	    }
-	    //if it is just a in depth greeting return an answer to it
+	    } 
+	    //if it is just a in depth greeting return an answer to it (
+	    //must be exactly a string from greet2
 	    if (greet2[i].equals( s.toLowerCase() ) ) {
 		sentence = answer[ (int) (Math.random() * answer.length) ];
 		punctuate();
 		capitalize();
 	    }
 	}
-	//loop through the answers for in depth greetings
+	//loop through the answers for in depth greeting answers
 	for ( int i = 0; i < answer.length; i++ ) {
 	    //if the input is on the answers return a pre set response
 	    if ( search( answer[i], s ) ) {
 		sentence = "that's cool. Or is it";
 		quest = true;
+		punctuate();
+		capitalize();
+	    }
+	}
+	//loop through greet2 searching if greet2 is in the input (only greet 2 will be input)
+	for ( int i = 0; i < greet2.length; i++ ) {
+	    if ( search( greet2[i], s ) ) {
+		sentence = answer[ (int) (Math.random() * answer.length) ];
+		punctuate();
+		capitalize();
+	    }
+	}
+	//loop through greet1 searching if greet1 is in the input (only greet1 will be input)
+	for ( int i = 0; i < greet1.length; i++ ) {
+	    if ( search( greet1[i], s ) ) {
+		//choose a greeting from greet1
+		sentence = greet1[ (int) (Math.random() * greet1.length) ];
+		//add greeting question from greet2
+		if (Math.random() > .5) {
+		    //if more indepth greeting is added set quest to true to have
+		    //appropiate punctuation
+		    quest = true;
+		    sentence += ", " + greet2[ (int) (Math.random() * greet2.length) ];
+		}
 		punctuate();
 		capitalize();
 	    }
