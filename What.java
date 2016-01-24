@@ -47,19 +47,22 @@ public class What extends Sentence {
 	for(int i = 0; i < input.size(); i++) {
 	    String x = input.get(i);
 	    if (animals.contains(x)
-		|| input.contains("animal")
-		|| input.contains("animals")) {
-		return "The " + x + animalResponse();
+		|| input.get(i).indexOf("animal") > -1
+		|| input.get(i).indexOf("animals") > -1) {
+		if(x.equals("animal") || x.equals("animals"))
+		    return "That's a " +
+			animals.get((int)(Math.random() * animals.size()));
+		return "The " + x + " " + animalResponse();
 	    }
 	    if (colors.contains(x)
-		|| input.contains("color")
-		|| input.contains("colors")) {
+		|| input.get(i).indexOf("color") > -1
+		|| input.get(i).indexOf("colors") > -1) {
 		return "My favorite color is " +
 		    colors.get((int)(Math.random() * colors.size()));
 	    }
 	    if (foods.contains(x)
-		|| input.contains("food")
-		|| input.contains("foods")) {
+		|| input.get(i).indexOf("food") > -1
+		|| input.get(i).indexOf("foods") > -1) {
 		return "I myself am partial to " +
 		    foods.get((int)(Math.random() * foods.size()));
 	    }
