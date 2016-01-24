@@ -92,7 +92,7 @@ public class Kumar {
 	boolean retBool = false;
 	if(input.substring(input.length() - 1).equals("?") ||
 	   ! questionType(input).equals("unknown") ||
-	   toBeStructure(input)) {
+	   toDoStructure(input)) {
 	    retBool = true;
 	}
 	return retBool;
@@ -115,8 +115,22 @@ public class Kumar {
 	     && search("life", s.sentence) ) {
 	    str = "The meaning of life is 42.";
 	}
-	else if ( toBeStructure(s.sentence) ) {
-	    str = "YOU ARE BEAUTIFUL";
+	else if ( toDoStructure(s.sentence) ) {
+	    String[] L = s.sentence.split(" ");
+	    L[L.length - 1] = strip(L[L.length - 1]);
+	    if(L[1].equals("I")) str = "You do.";
+	    else if(L[1].equals("you")) str = "I do.";
+	    else if(L[1].equals("we")) str = "We do.";
+	    else if(L[1].equals("he")) str = "He does.";
+	    else if(L[1].equals("she")) str = "She does.";
+	    else if(L[1].equals("it") ||
+		    L[1].equals("the") &&
+		    (objects.contains(L[2]) ||
+		     animals.contains(L[2]) ||
+		     colors.contains(L[2]) ||
+		     foods.contains(L[2])))
+		str = "It does.";
+	    else str = "They do.";
 	}
 	else if ( questionType(s.sentence).equals("what") ) {
 	    Sentence answer = new What(s);
@@ -157,7 +171,7 @@ public class Kumar {
 	return s;
     }
 
-    public static boolean toBeStructure(String s) {
+    public static boolean toDoStructure(String s) {
 	String[] str = s.split(" ");
 	str[str.length - 1] = strip(str[str.length - 1]);
 	HTMLParser singular1 = new HTMLParser( str[1] );
@@ -183,7 +197,7 @@ public class Kumar {
 	       || animals.contains(str[2])
 	       || colors.contains(str[2])
 	       || foods.contains(str[2])))) ||
-	    (str[0].equals("Does") &&
+	    ( (str[0].equals("Does") || str[0].equals("does")) &&
 	     (str[1].equals("she")
 	      || str[1].equals("he")
 	      || str[1].equals("it")
