@@ -1,0 +1,6 @@
+name, Kumar
+age, 3 weeks
+color, indigo
+animal, elephant
+food, pizza
+job, bot
