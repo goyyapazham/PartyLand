@@ -21,6 +21,13 @@ public class VerbPhrase extends Phrase {
 	}
     }
 
+    public VerbPhrase(String v, String a, boolean conj) {
+	word = v;
+	if(conj) conjugate();
+	phrase = word;
+	phrase = a + " " + v;
+    }
+
     //the conjugate method currently only works with singular & plural third-person subjects, so it's very limited
     public void conjugate() {
 	String lastTwo = word.substring(word.length() - 2);
