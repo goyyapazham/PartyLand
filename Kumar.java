@@ -14,15 +14,6 @@ public class Kumar {
     private ArrayList<String> foods = g.words;
     private ArrayList<String> colors = h.words;
     private ArrayList<String> animals = j.words;
-
-    public static String strip(String s) {
-	String retStr = "";
-	for(int i = 0; i < s.length(); i++) {
-	    if (punctuation.indexOf(s.substring(i, i + 1)) == -1)
-		retStr += s.substring(i, i + 1);
-	}
-	return retStr;
-    }
     
     //speaking info
     public void begin() {
@@ -40,6 +31,53 @@ public class Kumar {
 	System.out.println("And don't forget your help commands: ");
 	System.out.println("  *  help -- get this information again, at any time during our conversation");
 	System.out.println("  *  exit -- if you want to leave without saying goodbye, you can... :'(\n");
+    }
+
+    //string manipulation
+    public static String strip(String s) {
+	String retStr = "";
+	for(int i = 0; i < s.length(); i++) {
+	    //only transfer old chars to new string if they aren't punc
+	    if (punctuation.indexOf(s.substring(i, i + 1)) == -1)
+		retStr += s.substring(i, i + 1);
+	}
+	return retStr;
+    }
+    
+    public static boolean search( String searching, String input ) {
+	input = input.toLowerCase();
+	input = removeSpace(input);
+	String[] inputArray = input.split(" ");
+	if ( searching.equals(input) ) return true;
+	for ( int i = 0; i < inputArray.length; i++) {
+	    if ( inputArray.length == 1 && inputArray[i].equals("") )
+		return false;
+	    if (isPunc(inputArray[i].substring(inputArray[i].length() - 1))) {
+		inputArray[i]
+		    = inputArray[i].substring( 0, inputArray[i].length() - 1 );
+	    }
+	    if ( searching.equals( inputArray[i] ) ) return true;
+	}
+	return false;
+    }
+    
+    public static boolean isPunc( String searching ) {
+     	for ( int i = 0; i < punctuation.length(); i++) {
+	    if ( searching.equals( punctuation.substring( i, i+1 ) ) ) {
+		return true;
+	    }
+	}
+	return false;
+    }
+
+    public static String removeSpace ( String input ) {
+	int x = input.length();
+	for ( int i = 0; i < x; i++ ) {
+	    if ( input.substring(0,1).equals(" ") ) {
+		input = input.substring(1);
+	    }
+	}
+	return input;
     }
 
     //for response mechanism
@@ -77,60 +115,42 @@ public class Kumar {
 	    str = "The meaning of life is 42.";
 	}
 	else if ( questionType(s.sentence).equals("what") ) {
-	    What answer = new What(s);
+	    Sentence answer = new What(s);
 	    str = answer.toString();
 	}
 	else if ( questionType(s.sentence).equals("when") ) {
-	    When answer = new When(s);
+	    Sentence answer = new When(s);
 	    str = answer.toString();
 	}
 	else if ( questionType(s.sentence).equals("where") ) {
-	    Where answer = new Where(s);
+	    Sentence answer = new Where(s);
 	    str = answer.toString();
 	}
 	else if ( questionType(s.sentence).equals("who") ) {
-	    Who answer = new Who(s);
+	    Sentence answer = new Who(s);
 	    str = answer.toString();
 	}
 	else if ( questionType(s.sentence).equals("why") ) {
-	    Why answer = new Why(s);
+	    Sentence answer = new Why(s);
 	    str = answer.toString();
 	}
 	else if ( questionType(s.sentence).equals("how") ) {
-	    How answer = new How(s);
+	    Sentence answer = new How(s);
 	    str = answer.toString();
 	}
+	else if ( s.sentence.indexOf("bored") > -1 ||
+		  s.sentence.indexOf("boring") > -1 ||
+		  (int)(Math.random() * 35) == 0 ) {
+	    FunFact answer = new FunFact();
+	    str = answer.generate("");
+	}
 	else {
-	    Sentence filler = new Filler();
-	    str = filler.generate("");
+	    Filler filler = new Filler();
+	    str = filler.generate(s.sentence);
 	}
 	s = new Filler();
 	s.sentence = str;
 	return s;
-    }
-
-    public static String removeSpace ( String input ) {
-	int x = input.length();
-	for ( int i = 0; i < x; i++ ) {
-	    if ( input.substring(0,1).equals(" ") ) {
-		input = input.substring(1);
-	    }
-	}
-	return input;
-    }
-    public static boolean search( String searching, String input ) {
-	input = input.toLowerCase();
-	input = removeSpace(input);
-	String[] inputArray = input.split(" ");
-	if ( searching.equals(input) ) return true;
-	for ( int i = 0; i < inputArray.length; i++) {
-	    if ( inputArray.length == 1 && inputArray[i].equals("") ) return false;
-	    if ( isPunc( inputArray[i].substring( inputArray[i].length() - 1 ) ) ) {
-		inputArray[i] = inputArray[i].substring( 0, inputArray[i].length() - 1 );
-	    }
-	    if ( searching.equals( inputArray[i] ) ) return true;
-	}
-	return false;
     }
     
     //Greeting
@@ -170,14 +190,6 @@ public class Kumar {
 	Farewell farewell = new Farewell();
 	farewell.generate("");
 	return farewell;
-    }
-    public static boolean isPunc( String searching ) {
-     	for ( int i = 0; i < punctuation.length(); i++) {
-	    if ( searching.equals( punctuation.substring( i, i+1 ) ) ) {
-		return true;
-	    }
-	}
-	return false;
     }
 
     public Sentence respondRelated(Sentence s) {
@@ -234,7 +246,8 @@ public class Kumar {
 		break;
 	    }
 	}
-	if (b == false) return randAnswer(s);
+	
+	if (!b) return randAnswer(s);
 	else return d;
     }
     
@@ -252,7 +265,6 @@ public class Kumar {
 	String s = "";
 	Sentence input;
 	begin();
-	//completed before while loop so as to only perform once
 	while(! s.equals("exit")) {
 	    Sentence response;
 	    s = Keyboard.readString();
