@@ -57,12 +57,12 @@ public class Kumar {
     }
 
     public static String questionType( String input ) {
-	if ( search("what",input) ) return "what";
-	if ( search("when",input) ) return "when";
-	if ( search("where",input) ) return "where";
-	if ( search("who",input) ) return "who";
-	if ( search("why",input) ) return "why";
-	if ( search("how",input) ) return "how";
+	if ( search("what",input) || search("what's",input) ) return "what";
+	if ( search("when",input) || search("when's",input) ) return "when";
+	if ( search("where",input) || search("where's",input) ) return "where";
+	if ( search("who",input) || search("who's",input) ) return "who";
+	if ( search("why",input) || search("why's",input) ) return "why";
+	if ( search("how",input) || search("how's",input) ) return "how";
 	return "unknown";
     }
     
