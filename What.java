@@ -112,7 +112,8 @@ public class What extends Sentence {
 		return "My name is " + bio.get( categories.indexOf("name") );
 	    //if the input word is age return age
 	    if( x.equals("age") )
-		return "My age is " + bio.get( categories.indexOf("age") );
+		return "I'm " + bio.get( categories.indexOf("age") )
+		    + " old";
 	    //if the input word is job return job
 	    if( x.equals("job") )
 		return "I'm a " + bio.get( categories.indexOf("job") );
