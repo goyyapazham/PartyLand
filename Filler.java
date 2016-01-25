@@ -22,8 +22,17 @@ public class Filler extends Sentence {
     
     public String generate(String s) {
 	//if the input is a question set s to one of the random responses
-	if(Kumar.isQuestion(s))
-	    s = responses[(int)(Math.random() * responses.length)];
+	if(Kumar.isQuestion(s)) {
+	    if((int)(Math.random() * 2) == 0)
+		s = responses[(int)(Math.random() * responses.length)];
+	    else {
+		s = "The answer is ";
+		if((int)(Math.random() * 2) == 0)
+		    s += "in the question. Look again.";
+		else
+		    s += "within you. Look deeper.";
+	    }
+	}
 	//else set s to one of the random fillers
 	else
 	    s = fillers[(int)(Math.random() * fillers.length)];

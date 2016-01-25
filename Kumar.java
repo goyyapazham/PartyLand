@@ -30,7 +30,8 @@ public class Kumar {
 	System.out.println("  *  What is the meaning of life?\n");
 	System.out.println("And don't forget your help commands: ");
 	System.out.println("  *  help -- get this information again, at any time during our conversation");
-	System.out.println("  *  exit -- if you want to leave without saying goodbye, you can... :'(\n");
+	System.out.println("  *  exit -- if you want to leave without saying goodbye, you can... :'(");
+	System.out.println("  *  you can also exit by typing a commonly used farwell!\n");
     }
 
     //string manipulation
@@ -226,7 +227,7 @@ public class Kumar {
     }
 
     public static String irrVerbResponse(String s, String type){
-	String s1, s2, s3, s4;
+	String s1, s2;
 	if(type.equals("do")) {
 	    s1 = "do";
 	    s2 = "does";
@@ -238,7 +239,7 @@ public class Kumar {
 	String[] L = s.split(" ");
 	L[L.length - 1] = strip(L[L.length - 1]);
 	if(L[1].equals("I")) return "You " + s1 + ".";
-	else if (L[1].equals("you")) return "I " + s1 + ".";
+	else if (L[1].equals("you")) return "I am.";
 	else if (L[1].equals("we")) return "We " + s1 + ".";
 	else if (L[1].equals("he")) return "He " + s2 + ".";
 	else if (L[1].equals("she")) return "She " + s2 + ".";
@@ -296,6 +297,21 @@ public class Kumar {
 	return farewell;
     }
 
+    public boolean isTease(Sentence s) {
+	String[] str = s.sentence.split(" ");
+	str[str.length - 1] = strip(str[str.length - 1]);
+	for(int i = 0; i < str.length; i++) {
+	    if(str[i].equals("robot") ||
+	       str[i].equals("person") ||
+	       str[i].equals("bot") ||
+	       str[i].equals("real") ||
+	       str[i].equals("human")) {
+		return true;
+	    }
+	}
+	return false;
+    }
+
     public Sentence respondRelated(Sentence s) {
 	Declarative d = new Declarative();
 	Boolean b = false;
@@ -312,6 +328,16 @@ public class Kumar {
 	    singular.startConnection();
 	    singular.singular();
 	    str[i] = singular.toString();
+	    if (isTease(s)) {
+		int rand = (int)(Math.random() * 3);
+		if(rand == 0)
+		    s.sentence = "I'm very much real.";
+	        else if(rand == 1)
+		    s.sentence = "I hate it when folks say I'm a robot.";
+		else
+		    s.sentence = "Hey! Robots have feelings too!";
+		return s;
+	    }
 	    if (singular.getUnknown()) {
 		count++;
 	    }
