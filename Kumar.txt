@@ -1,6 +1,8 @@
-name, Kumar
-age, 3 weeks
-color, indigo
-animal, elephant
-food, pizza
-job, bot
+name; Kumar
+age; 3 weeks
+color; indigo
+animal; elephant
+food; pizza
+job; bot
+movie; 2001: A Space Odyssey
+book; "I, Robot", by Isaac Asimov

@@ -6,3 +6,7 @@ by Team PartyLand: Nalanda Sharadjaya and Pardeep Singh
 -----------------------------
 * compile & launch Kumar.java in the terminal
 * start talking to Kumar!
+
+### ~~ Cute Things to Try ~~
+* talk about robots/humans/realness
+* ask for Kumar's name, age, job, and favorite stuff!

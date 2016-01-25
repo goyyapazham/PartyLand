@@ -58,7 +58,7 @@ public class What extends Sentence {
 	//loop through data pulled from CSV file
 	for(int i = 0; i < kumar.size(); i++) {
 	    //split the data on commas
-	    kumar.set(i, ((String)kumar.get(i)).split(", "));
+	    kumar.set(i, ((String)kumar.get(i)).split("; "));
 	}
 	//loop through CSV data again adding the data to its
 	//appropiate data set
@@ -85,8 +85,7 @@ public class What extends Sentence {
 	    String x = input.get(i);
 	    //if the input is animal repsond with an animal related answer
 	    if (animals.contains(x)
-		|| input.get(i).indexOf("animal") > -1
-		|| input.get(i).indexOf("animals") > -1) {
+		|| x.indexOf("animal") > -1) {
 		if(x.equals("animal") || x.equals("animals"))
 		    return "That's a " +
 			animals.get((int)(Math.random() * animals.size()));
@@ -94,19 +93,22 @@ public class What extends Sentence {
 	    }
 	    //if the input contains color return color related answer
 	    if (colors.contains(x)
-		|| input.get(i).indexOf("color") > -1
-		|| input.get(i).indexOf("colors") > -1) {
+		|| x.indexOf("color") > -1) {
 		return "My favorite color is " +
 		    bio.get(categories.indexOf("color"));
 	    }
 	    //if input contains food return food related answer
 	    if (foods.contains(x)
-		|| input.get(i).indexOf("food") > -1
-		|| input.get(i).indexOf("foods") > -1) {
+		|| x.indexOf("food") > -1) {
 		return "I myself am partial to "
 		    + bio.get(categories.indexOf("food"));
-		
 	    }
+	    if(x.equals("book"))
+		return "My all-time favorite is " +
+		    bio.get(categories.indexOf("book"));
+	    if(x.equals("movie"))
+		return "I've always enjoyed " +
+		    bio.get(categories.indexOf("movie"));
 	    //if the input word is name return name
 	    if( x.equals("name") )
 		return "My name is " + bio.get( categories.indexOf("name") );

@@ -29,7 +29,7 @@ public class How extends Sentence {
 	//loop through data pulled from CSV file
 	for(int i = 0; i < kumar.size(); i++) {
 	    //split the data on commas
-	    kumar.set(i, ((String)kumar.get(i)).split(", "));
+	    kumar.set(i, ((String)kumar.get(i)).split("; "));
 	}
 	//loop through CSV data again adding the data to its
 	//appropiate data set
