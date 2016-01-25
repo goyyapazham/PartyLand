@@ -227,19 +227,21 @@ public class Kumar {
     }
 
     public static String irrVerbResponse(String s, String type){
-	String s1, s2;
+	String s1, s2, s3;
 	if(type.equals("do")) {
 	    s1 = "do";
+	    s3 = s1;
 	    s2 = "does";
 	}
 	else {
 	    s1 = "are";
+	    s3 = "am";
 	    s2 = "is";
 	}
 	String[] L = s.split(" ");
 	L[L.length - 1] = strip(L[L.length - 1]);
 	if(L[1].equals("I")) return "You " + s1 + ".";
-	else if (L[1].equals("you")) return "I am.";
+	else if (L[1].equals("you")) return "I " + s3 + ".";
 	else if (L[1].equals("we")) return "We " + s1 + ".";
 	else if (L[1].equals("he")) return "He " + s2 + ".";
 	else if (L[1].equals("she")) return "She " + s2 + ".";
@@ -305,11 +307,29 @@ public class Kumar {
 	       str[i].equals("person") ||
 	       str[i].equals("bot") ||
 	       str[i].equals("real") ||
+	       str[i].equals("mind") ||
+	       str[i].equals("conscious") ||
+	       str[i].equals("think") ||
+	       str[i].equals("thinks") ||
+	       str[i].equals("thinking") ||
 	       str[i].equals("human")) {
 		return true;
 	    }
 	}
 	return false;
+    }
+
+    public Sentence tease(Sentence s) {
+	int rand = (int)(Math.random() * 4);
+	if(rand == 0)
+	    s.sentence = "I'm very much real.";
+	else if(rand == 1)
+	    s.sentence = "I hate it when folks say I'm JUST a robot.";
+	else if(rand == 2)
+	    s.sentence = "I think perfectly well, thank you very much!";
+	else
+	    s.sentence = "Hey! Robots have feelings too!";
+	return s;
     }
 
     public Sentence respondRelated(Sentence s) {
@@ -328,16 +348,6 @@ public class Kumar {
 	    singular.startConnection();
 	    singular.singular();
 	    str[i] = singular.toString();
-	    if (isTease(s)) {
-		int rand = (int)(Math.random() * 3);
-		if(rand == 0)
-		    s.sentence = "I'm very much real.";
-	        else if(rand == 1)
-		    s.sentence = "I hate it when folks say I'm a robot.";
-		else
-		    s.sentence = "Hey! Robots have feelings too!";
-		return s;
-	    }
 	    if (singular.getUnknown()) {
 		count++;
 	    }
@@ -441,6 +451,7 @@ public class Kumar {
 	    input = new Input(s);
 	    if ( isGreet(input) ) response = greet(input);
 	    else if( isSpecific(input) ) response = specific(input);
+	    else if( isTease(input) ) response = tease(input);
 	    else if(isQuestion(input.sentence)) response = basicQAnswer(input);
 	    else if ( isFarewell(input) ) {
 		response = farewell(input);
