@@ -232,10 +232,6 @@ public class Kumar {
 		return true;
 	}
 	if (str.length > 2) {
-	    HTMLParser singular2 = new HTMLParser( str[2] );
-	    singular2.startConnection();
-	    singular2.singular();
-	    str[2] = singular2.toString();
 	    if (( objects.contains(str[1])
 		  || animals.contains(str[1])
 		  || colors.contains(str[1])
@@ -266,19 +262,35 @@ public class Kumar {
 	}
 	String[] L = s.split(" ");
 	L[L.length - 1] = strip(L[L.length - 1]);
-	if(L[1].equals("I")) return "You " + s1 + ".";
-	else if (L[1].equals("you")) return "I " + s3 + ".";
-	else if (L[1].equals("we")) return "We " + s1 + ".";
-	else if (L[1].equals("he")) return "He " + s2 + ".";
-	else if (L[1].equals("she")) return "She " + s2 + ".";
-	else if (L[1].equals("it") ||
-		 L[1].equals("the") &&
-		 (objects.contains(L[2]) ||
-		  animals.contains(L[2]) ||
-		  colors.contains(L[2]) ||
-		  foods.contains(L[2])))
-	    return "It " + s2 + ".";
-	else return "They " + s1 + ".";
+	if(L.length > 2) {
+	    HTMLParser singular = new HTMLParser( L[2] );
+	    singular.startConnection();
+	    singular.singular();
+	    L[2] = singular.toString();
+	}
+	if (L.length > 1) {
+	    if(L[1].equals("I")) return "You " + s1 + ".";
+	    else if (L[1].equals("you")) return "I " + s3 + ".";
+	    else if (L[1].equals("we")) return "We " + s1 + ".";
+	    else if (L[1].equals("he")) return "He " + s2 + ".";
+	    else if (L[1].equals("she")) return "She " + s2 + ".";
+	    else if (L[1].equals("it") ||
+		     L[1].equals("the") &&
+		     (objects.contains(L[2]) ||
+		      animals.contains(L[2]) ||
+		      colors.contains(L[2]) ||
+		      foods.contains(L[2])))
+		return "It " + s2 + ".";
+	    else if (L[1].equals("they") ||
+		     L[1].equals("the") && L.length > 2 && 
+		     (objects.contains(L[2]) ||
+		      animals.contains(L[2]) ||
+		      colors.contains(L[2]) ||
+		      foods.contains(L[2])))
+		return "They " + s1 + ".";
+	    else return "I don't understand.";
+	}
+	else return "I don't understand.";
     }
     
     //Greeting
@@ -368,7 +380,25 @@ public class Kumar {
 	    s.sentence = "Hey! Robots have feelings too!";
 	return s;
     }
-
+    //checks input to see if it says Kumar in the input
+    public boolean hasKumar(Sentence s) {
+	//split on spaces
+	String[] str = s.sentence.split(" ");
+	//remove punctuation
+	str[str.length - 1] = strip(str[str.length - 1]);
+	//loop through inputs to look for Kumar
+	for(int i = 0; i < str.length; i++) {
+	    if(str[i].equals("Kumar"))
+		return true;
+	}
+	return false;
+    }
+    //repsonse to finding Kumar in input
+    public Sentence selfRecognition(Sentence s) {
+	s.sentence = "Hey! That's me!";
+	return s;
+    }
+    //responds using nouns in input
     public Sentence respondRelated(Sentence s) {
 	//make a declaritive and boolean b to show if it is used or not
 	Declarative d = new Declarative();
@@ -508,14 +538,16 @@ public class Kumar {
 	    Sentence response;
 	    s = Keyboard.readString();
 	    input = new Input(s);
+	    //checks for his name
+	    if ( hasKumar(input) ) response = selfRecognition(input);
 	    //check if it is a greeting
-	    if ( isGreet(input) ) response = greet(input);
+	    else if ( isGreet(input) ) response = greet(input);
 	    //check if it about colors, foods, animals
 	    else if( isSpecific(input) ) response = specific(input);
-	    //check if has the tease
-	    else if( isTease(input) ) response = tease(input);
 	    //check if it is a question 
 	    else if(isQuestion(input.sentence)) response = basicQAnswer(input);
+	    //check if has the tease
+	    else if( isTease(input) ) response = tease(input);
 	    //check if it is a farewell and set terminate to true if it is
 	    else if ( isFarewell(input) ) {
 		response = farewell(input);
