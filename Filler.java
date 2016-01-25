@@ -35,8 +35,9 @@ public class Filler extends Sentence {
 		    s += "within you. Look deeper.";
 	    }
 	}
-	//else set s to one of the random fillers
+	//else set s to one of the random fillers...
 	else {
+	    //...and add what you received to existing fillers
 	    a.appendToFile(s, false);
 	    s = fillers[(int)(Math.random() * fillers.length)];
 	}

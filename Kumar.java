@@ -21,6 +21,11 @@ public class Kumar {
     //prints out the info need to start
     public void begin() {
 	System.out.println("\nHello! Welcome. My name is Kumar.");
+	System.out.println("\nGuidelines: ");
+	System.out.println("  *  try to speak to me in simple, declarative phrases");
+	System.out.println("  *  questions are also good, but remember, keep them simple!");
+	System.out.println("  *  I can generate a response to anything you say...");
+	System.out.println("  *  ...but the simpler you speak, the more enjoyable my responses will be");
 	help();
 	System.out.println("Begin...");
 	System.out.println();
@@ -564,7 +569,10 @@ public class Kumar {
 	    //if the input is help return help menu
 	    if(s.equals("help")) help();
 	    //if farewell was said terminate program
-	    if (terminate) {	
+	    if (terminate) {
+		//before you terminate!
+		//commit changes to fillers.txt
+		//to the repo!
 		try {
 		    Runtime x = Runtime.getRuntime();
 		    Process child = x.exec("./addtogit.sh");

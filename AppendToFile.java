@@ -10,6 +10,7 @@ public class AppendToFile {
 
     public void appendToFile(String input, boolean question) {
 
+	//copying data into a buffer (not written to disk)
 	BufferedWriter bw = null;
 
 	try {
@@ -17,20 +18,23 @@ public class AppendToFile {
 	    String write = "\n";
 	    if(question) write += "Let me ask you this: " + input.substring(0, 1).toLowerCase() + input.substring(1);
 	    else write += input;
-	    bw.write(write);
-	    bw.flush();
+	    bw.write(write); //writes input to text file
+	    bw.flush(); //forces push to disk (see first comment re: buffer)
 	} catch (IOException e) {
+	    //throw Input/Output exception
 	    System.out.println("OOPS");
 	} finally {
-	    if (bw != null)
+	    //must close file!
+	    if (bw != null) //which would mean the file was never opened
 		try {
 		    bw.close();
 		} catch (IOException f) {
-		    //
+		    System.out.println("OOPS");
 		}
 	}
     }
-    
+
+    // ~~ test cases for debugging purposes ~~
     /*
     public static void main(String[] args) {
 	AppendToFile nala = new AppendToFile();
