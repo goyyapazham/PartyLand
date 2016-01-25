@@ -2,7 +2,7 @@ import java.net.URLConnection;
 import java.net.URL;
 import java.util.Scanner;
 import java.lang.Throwable;
-
+//special thanks to Java API and stackoverflow for helping my learn how to do this
 public class HTMLParser {
 
     //HTML from site
