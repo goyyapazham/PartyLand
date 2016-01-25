@@ -1,4 +1,5 @@
 import cs1.Keyboard;
+
 import java.util.ArrayList;
 
 public class Kumar {
@@ -534,7 +535,6 @@ public class Kumar {
 	begin();
 	//while the person doesn't exit
 	while(! s.equals("exit")) {
-	    //set the input to be a new sentence
 	    Sentence response;
 	    s = Keyboard.readString();
 	    input = new Input(s);
@@ -545,7 +545,9 @@ public class Kumar {
 	    //check if it about colors, foods, animals
 	    else if( isSpecific(input) ) response = specific(input);
 	    //check if it is a question 
-	    else if(isQuestion(input.sentence)) response = basicQAnswer(input);
+	    else if(isQuestion(input.sentence)) {
+		response = basicQAnswer(input);
+	    }
 	    //check if has the tease
 	    else if( isTease(input) ) response = tease(input);
 	    //check if it is a farewell and set terminate to true if it is

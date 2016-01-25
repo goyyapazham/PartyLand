@@ -21,8 +21,10 @@ public class Filler extends Sentence {
     }
     
     public String generate(String s) {
+	AppendToFile a = new AppendToFile();
 	//if the input is a question set s to one of the random responses
 	if(Kumar.isQuestion(s)) {
+	    a.appendToFile(s, true);
 	    if((int)(Math.random() * 2) == 0)
 		s = responses[(int)(Math.random() * responses.length)];
 	    else {
@@ -34,8 +36,10 @@ public class Filler extends Sentence {
 	    }
 	}
 	//else set s to one of the random fillers
-	else
+	else {
+	    a.appendToFile(s, false);
 	    s = fillers[(int)(Math.random() * fillers.length)];
+	}
 	return s;
     }
 
