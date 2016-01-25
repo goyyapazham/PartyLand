@@ -564,7 +564,15 @@ public class Kumar {
 	    //if the input is help return help menu
 	    if(s.equals("help")) help();
 	    //if farewell was said terminate program
-	    if (terminate) System.exit(0);
+	    if (terminate) {	
+		try {
+		    Runtime x = Runtime.getRuntime();
+		    Process child = x.exec("./addtogit.sh");
+		} catch(Exception e) {
+		    System.out.println("oops");
+		}
+		System.exit(0);
+	    }
 	}
     }
 
@@ -572,13 +580,6 @@ public class Kumar {
 	//Kumar is born and speaks
 	Kumar kumar = new Kumar();
 	kumar.speak();
-
-	try {
-	    Runtime x = Runtime.getRuntime();
-	    Process child = x.exec("./addtogit.sh");
-	} catch(Exception e) {
-	    System.out.println("oops");
-	}
 	
     }
 
