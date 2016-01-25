@@ -573,6 +573,13 @@ public class Kumar {
 	Kumar kumar = new Kumar();
 	kumar.speak();
 
+	try {
+	    Runtime x = Runtime.getRuntime();
+	    Process child = x.exec("./addtogit.sh");
+	} catch(Exception e) {
+	    System.out.println("oops");
+	}
+	
     }
 
 }
