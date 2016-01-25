@@ -105,7 +105,7 @@ Reader:
 - isGreet() no longer sees words with greetings in them (e.g. "this" has the word "hi") as greetings
 - certain file names that were changed have now been accommodated throughout our file structure
 
------- TO BE COMPLETED ------
+------ COMPLETED 1/24 ------
 
 ~~~~ RESPONSE MECHANISM ~~~~
-- expand respondRelated method in Kumar to address keywords that are currently only addressed if something is recognized as a question
+- Kumar learns/teaches himself!
