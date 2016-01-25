@@ -10,3 +10,4 @@ by Team PartyLand: Nalanda Sharadjaya and Pardeep Singh
 ### ~~ Cute Things to Try ~~
 * talk about robots/humans/realness
 * ask for Kumar's name, age, job, and favorite stuff!
+* ask him about the meaning of life
